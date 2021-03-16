@@ -17,6 +17,7 @@ namespace OnlineAcademy.Entities.Concrete
         public DateTime CreatedDate { get; set; }
         public DateTime UpdatedDate { get; set; }
         public bool IsDeleted { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
 
     }
 }

@@ -15,7 +15,9 @@ namespace OnlineAcademy.Entities.Concrete
         public string Title { get; set; }
         public string Message { get; set; }
         public DateTime CreatedDate { get; set; }
-        public DateTime UpdatedDate { get; set; }
+        public DateTime? UpdatedDate { get; set; }
         public bool IsDeleted { get; set; }
+        public virtual User User { get; set; }
+        public virtual Lesson Lesson { get; set; }
     }
 }
