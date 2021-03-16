@@ -40,7 +40,6 @@ C:\Users\MSI\Documents\GitHub\OnlineAcademy\BackEnd\OnlineAcademy\OnlineAcademy.
 C:\Users\MSI\Documents\GitHub\OnlineAcademy\BackEnd\OnlineAcademy\OnlineAcademy.API\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\MSI\Documents\GitHub\OnlineAcademy\BackEnd\OnlineAcademy\OnlineAcademy.API\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\MSI\Documents\GitHub\OnlineAcademy\BackEnd\OnlineAcademy\OnlineAcademy.API\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\MSI\Documents\GitHub\OnlineAcademy\BackEnd\OnlineAcademy\OnlineAcademy.API\obj\Debug\net5.0\OnlineAcademy.API.csprojAssemblyReference.cache
 C:\Users\MSI\Documents\GitHub\OnlineAcademy\BackEnd\OnlineAcademy\OnlineAcademy.API\obj\Debug\net5.0\OnlineAcademy.API.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\MSI\Documents\GitHub\OnlineAcademy\BackEnd\OnlineAcademy\OnlineAcademy.API\obj\Debug\net5.0\OnlineAcademy.API.AssemblyInfoInputs.cache
 C:\Users\MSI\Documents\GitHub\OnlineAcademy\BackEnd\OnlineAcademy\OnlineAcademy.API\obj\Debug\net5.0\OnlineAcademy.API.AssemblyInfo.cs

@@ -9,3 +9,4 @@ C:\Users\MSI\Documents\GitHub\OnlineAcademy\BackEnd\OnlineAcademy\Core\obj\Debug
 C:\Users\MSI\Documents\GitHub\OnlineAcademy\BackEnd\OnlineAcademy\Core\obj\Debug\net5.0\Core.dll
 C:\Users\MSI\Documents\GitHub\OnlineAcademy\BackEnd\OnlineAcademy\Core\obj\Debug\net5.0\ref\Core.dll
 C:\Users\MSI\Documents\GitHub\OnlineAcademy\BackEnd\OnlineAcademy\Core\obj\Debug\net5.0\Core.pdb
+C:\Users\MSI\Documents\GitHub\OnlineAcademy\BackEnd\OnlineAcademy\Core\obj\Debug\net5.0\Core.csprojAssemblyReference.cache
