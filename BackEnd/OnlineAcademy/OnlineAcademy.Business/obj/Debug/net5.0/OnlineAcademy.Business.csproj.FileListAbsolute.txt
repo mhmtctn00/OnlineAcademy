@@ -1,0 +1,12 @@
+C:\Users\MSI\Documents\GitHub\OnlineAcademy\BackEnd\OnlineAcademy\OnlineAcademy.Business\bin\Debug\net5.0\OnlineAcademy.Business.deps.json
+C:\Users\MSI\Documents\GitHub\OnlineAcademy\BackEnd\OnlineAcademy\OnlineAcademy.Business\bin\Debug\net5.0\OnlineAcademy.Business.dll
+C:\Users\MSI\Documents\GitHub\OnlineAcademy\BackEnd\OnlineAcademy\OnlineAcademy.Business\bin\Debug\net5.0\ref\OnlineAcademy.Business.dll
+C:\Users\MSI\Documents\GitHub\OnlineAcademy\BackEnd\OnlineAcademy\OnlineAcademy.Business\bin\Debug\net5.0\OnlineAcademy.Business.pdb
+C:\Users\MSI\Documents\GitHub\OnlineAcademy\BackEnd\OnlineAcademy\OnlineAcademy.Business\obj\Debug\net5.0\OnlineAcademy.Business.csprojAssemblyReference.cache
+C:\Users\MSI\Documents\GitHub\OnlineAcademy\BackEnd\OnlineAcademy\OnlineAcademy.Business\obj\Debug\net5.0\OnlineAcademy.Business.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\MSI\Documents\GitHub\OnlineAcademy\BackEnd\OnlineAcademy\OnlineAcademy.Business\obj\Debug\net5.0\OnlineAcademy.Business.AssemblyInfoInputs.cache
+C:\Users\MSI\Documents\GitHub\OnlineAcademy\BackEnd\OnlineAcademy\OnlineAcademy.Business\obj\Debug\net5.0\OnlineAcademy.Business.AssemblyInfo.cs
+C:\Users\MSI\Documents\GitHub\OnlineAcademy\BackEnd\OnlineAcademy\OnlineAcademy.Business\obj\Debug\net5.0\OnlineAcademy.Business.csproj.CoreCompileInputs.cache
+C:\Users\MSI\Documents\GitHub\OnlineAcademy\BackEnd\OnlineAcademy\OnlineAcademy.Business\obj\Debug\net5.0\OnlineAcademy.Business.dll
+C:\Users\MSI\Documents\GitHub\OnlineAcademy\BackEnd\OnlineAcademy\OnlineAcademy.Business\obj\Debug\net5.0\ref\OnlineAcademy.Business.dll
+C:\Users\MSI\Documents\GitHub\OnlineAcademy\BackEnd\OnlineAcademy\OnlineAcademy.Business\obj\Debug\net5.0\OnlineAcademy.Business.pdb

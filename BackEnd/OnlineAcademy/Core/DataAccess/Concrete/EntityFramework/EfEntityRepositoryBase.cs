@@ -43,9 +43,9 @@ namespace Core.DataAccess.Concrete.EntityFramework
         {
             await Task.Run(() => { _context.Set<TEntity>().Update(entity); });
         }
-        public async ValueTask Commit()
+        public async Task<int> SaveAsync()
         {
-            await _context.SaveChangesAsync();
+            return await _context.SaveChangesAsync();
         }
     }
 }

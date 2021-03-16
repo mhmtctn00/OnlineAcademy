@@ -8,11 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnlineAcademy.DataAccess.Concrete
+namespace OnlineAcademy.DataAccess.Concrete.EntityFramework.Repositories
 {
-    public class CategoryDal : EfEntityRepositoryBase<Category>, ICategoryDal
+    public class EfUserDal : EfEntityRepositoryBase<User>, IUserDal
     {
-        public CategoryDal(DbContext context) : base(context)
+        public EfUserDal(DbContext context) : base(context)
         {
         }
     }
