@@ -1,8 +1,23 @@
 {
   "version": 2,
-  "dgSpecHash": "7kKT51+lMsNyij21N/+BJJUMfZV2iMvBdDLCFwobbOoyFtJtCVdo34I2rV0uT4FihsnHG96JPpWEUoARiv8AnQ==",
+  "dgSpecHash": "SOIUBBSvglRYN6HWTMoDQF6WFCNyOtJkRG9gRWs1MCyAQlGK6runBUClvNdSPBc/QEQfk8Dk/rlFKua9qGuUVQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\MSI\\Documents\\GitHub\\OnlineAcademy\\BackEnd\\OnlineAcademy\\OnlineAcademy.DataAccess\\OnlineAcademy.DataAccess.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\XTANBUL-4\\Documents\\GitHub\\OnlineAcademy\\BackEnd\\OnlineAcademy\\OnlineAcademy.DataAccess\\OnlineAcademy.DataAccess.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\XTANBUL-4\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.4\\microsoft.entityframeworkcore.5.0.4.nupkg.sha512",
+    "C:\\Users\\XTANBUL-4\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.4\\microsoft.entityframeworkcore.abstractions.5.0.4.nupkg.sha512",
+    "C:\\Users\\XTANBUL-4\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\5.0.4\\microsoft.entityframeworkcore.analyzers.5.0.4.nupkg.sha512",
+    "C:\\Users\\XTANBUL-4\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\5.0.0\\microsoft.extensions.caching.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\XTANBUL-4\\.nuget\\packages\\microsoft.extensions.caching.memory\\5.0.0\\microsoft.extensions.caching.memory.5.0.0.nupkg.sha512",
+    "C:\\Users\\XTANBUL-4\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\5.0.1\\microsoft.extensions.dependencyinjection.5.0.1.nupkg.sha512",
+    "C:\\Users\\XTANBUL-4\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\5.0.0\\microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\XTANBUL-4\\.nuget\\packages\\microsoft.extensions.logging\\5.0.0\\microsoft.extensions.logging.5.0.0.nupkg.sha512",
+    "C:\\Users\\XTANBUL-4\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\5.0.0\\microsoft.extensions.logging.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\XTANBUL-4\\.nuget\\packages\\microsoft.extensions.options\\5.0.0\\microsoft.extensions.options.5.0.0.nupkg.sha512",
+    "C:\\Users\\XTANBUL-4\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
+    "C:\\Users\\XTANBUL-4\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",
+    "C:\\Users\\XTANBUL-4\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
+    "C:\\Users\\XTANBUL-4\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.1\\system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512"
+  ],
   "logs": []
 }

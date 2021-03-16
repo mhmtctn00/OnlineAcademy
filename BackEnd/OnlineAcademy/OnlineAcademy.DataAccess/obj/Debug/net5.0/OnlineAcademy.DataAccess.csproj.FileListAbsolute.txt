@@ -1,0 +1,6 @@
+C:\Users\XTANBUL-4\Documents\GitHub\OnlineAcademy\BackEnd\OnlineAcademy\OnlineAcademy.DataAccess\bin\Debug\net5.0\Core.dll
+C:\Users\XTANBUL-4\Documents\GitHub\OnlineAcademy\BackEnd\OnlineAcademy\OnlineAcademy.DataAccess\bin\Debug\net5.0\OnlineAcademy.Entities.dll
+C:\Users\XTANBUL-4\Documents\GitHub\OnlineAcademy\BackEnd\OnlineAcademy\OnlineAcademy.DataAccess\obj\Debug\net5.0\OnlineAcademy.DataAccess.csprojAssemblyReference.cache
+C:\Users\XTANBUL-4\Documents\GitHub\OnlineAcademy\BackEnd\OnlineAcademy\OnlineAcademy.DataAccess\obj\Debug\net5.0\OnlineAcademy.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\XTANBUL-4\Documents\GitHub\OnlineAcademy\BackEnd\OnlineAcademy\OnlineAcademy.DataAccess\obj\Debug\net5.0\OnlineAcademy.DataAccess.AssemblyInfoInputs.cache
+C:\Users\XTANBUL-4\Documents\GitHub\OnlineAcademy\BackEnd\OnlineAcademy\OnlineAcademy.DataAccess\obj\Debug\net5.0\OnlineAcademy.DataAccess.AssemblyInfo.cs

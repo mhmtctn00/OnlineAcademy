@@ -10,9 +10,8 @@ using System.Threading.Tasks;
 
 namespace Core.DataAccess.Concrete.EntityFramework
 {
-    public class EfEntityRepositoryBase<TEntity, TContext> : IEntityRepository<TEntity>
+    public class EfEntityRepositoryBase<TEntity> : IEntityRepository<TEntity>
         where TEntity : class, IEntity, new()
-        where TContext : DbContext, new()
     {
         private readonly DbContext _context;
 
@@ -23,13 +22,11 @@ namespace Core.DataAccess.Concrete.EntityFramework
         public async Task AddAsync(TEntity entity)
         {
             await _context.Set<TEntity>().AddAsync(entity);
-            await _context.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(TEntity entity)
         {
             await Task.Run(() => { _context.Set<TEntity>().Remove(entity); });
-            await _context.SaveChangesAsync();
         }
 
         public async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate)
@@ -39,12 +36,15 @@ namespace Core.DataAccess.Concrete.EntityFramework
 
         public async Task<IEnumerable<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> predicate = null)
         {
-            return await _context.Set<TEntity>().Where(predicate).ToListAsync()
+            return await _context.Set<TEntity>().Where(predicate).ToListAsync();
         }
 
         public async Task UpdateAsync(TEntity entity)
         {
             await Task.Run(() => { _context.Set<TEntity>().Update(entity); });
+        }
+        public async ValueTask Commit()
+        {
             await _context.SaveChangesAsync();
         }
     }

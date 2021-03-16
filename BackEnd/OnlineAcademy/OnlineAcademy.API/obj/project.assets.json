@@ -193,25 +193,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\MSI\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\XTANBUL-4\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MSI\\Documents\\GitHub\\OnlineAcademy\\BackEnd\\OnlineAcademy\\OnlineAcademy.API\\OnlineAcademy.API.csproj",
+      "projectUniqueName": "C:\\Users\\XTANBUL-4\\Documents\\GitHub\\OnlineAcademy\\BackEnd\\OnlineAcademy\\OnlineAcademy.API\\OnlineAcademy.API.csproj",
       "projectName": "OnlineAcademy.API",
-      "projectPath": "C:\\Users\\MSI\\Documents\\GitHub\\OnlineAcademy\\BackEnd\\OnlineAcademy\\OnlineAcademy.API\\OnlineAcademy.API.csproj",
-      "packagesPath": "C:\\Users\\MSI\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MSI\\Documents\\GitHub\\OnlineAcademy\\BackEnd\\OnlineAcademy\\OnlineAcademy.API\\obj\\",
+      "projectPath": "C:\\Users\\XTANBUL-4\\Documents\\GitHub\\OnlineAcademy\\BackEnd\\OnlineAcademy\\OnlineAcademy.API\\OnlineAcademy.API.csproj",
+      "packagesPath": "C:\\Users\\XTANBUL-4\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\XTANBUL-4\\Documents\\GitHub\\OnlineAcademy\\BackEnd\\OnlineAcademy\\OnlineAcademy.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\MSI\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\XTANBUL-4\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -259,7 +258,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

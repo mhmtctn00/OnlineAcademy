@@ -14,5 +14,6 @@ namespace Core.DataAccess.Abstract
         Task AddAsync(T entity);
         Task UpdateAsync(T entity);
         Task DeleteAsync(T entity);
+        ValueTask Commit();
     }
 }
