@@ -25,7 +25,7 @@ namespace OnlineAcademy.DataAccess.Concrete.EntityFramework.Contexts
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=DESKTOP-H3E15TG;Database=OnlineTVDb;Trusted_Connection=True;Connect Timeout=30;MultipleActiveResultSets=True;");
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=OnlineTVDb;Trusted_Connection=True;Connect Timeout=30;MultipleActiveResultSets=True;");
 
         }
 

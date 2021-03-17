@@ -23,8 +23,8 @@ namespace OnlineAcademy.DataAccess.Concrete.EntityFramework.Mappings
             builder.Property(eb => eb.CreatedDate).IsRequired();
             builder.Property(eb => eb.CreatedByName).IsRequired();
             builder.Property(eb => eb.CreatedByName).HasMaxLength(50);
-            builder.Property(eb => eb.ModifiedDate).IsRequired();
-            builder.Property(eb => eb.ModifiedByName).IsRequired();
+            builder.Property(eb => eb.ModifiedDate).IsRequired(false);
+            builder.Property(eb => eb.ModifiedByName).IsRequired(false);
             builder.Property(eb => eb.ModifiedByName).HasMaxLength(50);
             builder.Property(eb => eb.IsActive).IsRequired();
             builder.Property(eb => eb.IsDeleted).IsRequired();
