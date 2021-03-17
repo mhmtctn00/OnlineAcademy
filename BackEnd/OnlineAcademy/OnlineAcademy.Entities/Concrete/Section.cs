@@ -11,5 +11,7 @@ namespace OnlineAcademy.Entities.Concrete
     {
         public int CorseId { get; set; }
         public string Title { get; set; }
+        public Course Course { get; set; }
+        public ICollection<Lesson> Lessons { get; set; }
     }
 }

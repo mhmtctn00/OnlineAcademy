@@ -15,8 +15,6 @@ namespace OnlineAcademy.DataAccess.Concrete.EntityFramework.Mappings
         {
             builder.ToTable("Users");
 
-            builder.HasKey(u => u.Id);
-            builder.Property(u => u.Id).IsRequired().UseIdentityColumn();
             builder.Property(u => u.Email).IsRequired().HasMaxLength(50);
             builder.Property(u => u.Password).IsRequired().HasMaxLength(20);
             builder.Property(u => u.Firstname).IsRequired().HasMaxLength(50);
@@ -25,16 +23,17 @@ namespace OnlineAcademy.DataAccess.Concrete.EntityFramework.Mappings
             builder.Property(u => u.IsActive).IsRequired();
 
             /* EntityBase */
-            builder.Property(u => u.Id).ValueGeneratedOnAdd();
-            builder.Property(u => u.CreatedDate).IsRequired();
-            builder.Property(u => u.CreatedByName).IsRequired();
-            builder.Property(u => u.CreatedByName).HasMaxLength(50);
-            builder.Property(u => u.ModifiedDate).IsRequired();
-            builder.Property(u => u.ModifiedByName).IsRequired();
-            builder.Property(u => u.ModifiedByName).HasMaxLength(50);
-            builder.Property(u => u.IsActive).IsRequired();
-            builder.Property(u => u.IsDeleted).IsRequired();
-            builder.Property(u => u.IsModified).IsRequired();
+            builder.HasKey(eb => eb.Id);
+            builder.Property(eb => eb.Id).IsRequired().UseIdentityColumn();
+            builder.Property(eb => eb.CreatedDate).IsRequired();
+            builder.Property(eb => eb.CreatedByName).IsRequired();
+            builder.Property(eb => eb.CreatedByName).HasMaxLength(50);
+            builder.Property(eb => eb.ModifiedDate).IsRequired();
+            builder.Property(eb => eb.ModifiedByName).IsRequired();
+            builder.Property(eb => eb.ModifiedByName).HasMaxLength(50);
+            builder.Property(eb => eb.IsActive).IsRequired();
+            builder.Property(eb => eb.IsDeleted).IsRequired();
+            builder.Property(eb => eb.IsModified).IsRequired();
 
             builder.HasData(
                 new User

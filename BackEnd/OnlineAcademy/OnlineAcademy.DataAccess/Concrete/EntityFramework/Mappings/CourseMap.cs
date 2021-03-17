@@ -15,24 +15,23 @@ namespace OnlineAcademy.DataAccess.Concrete.EntityFramework.Mappings
         {
             builder.ToTable("Courses");
 
-            builder.HasKey(c => c.Id);
-            builder.Property(c => c.Id).IsRequired().UseIdentityColumn();
             builder.Property(c => c.Title).IsRequired().HasMaxLength(150);
             builder.Property(c => c.Description).IsRequired();
             builder.Property(c => c.CreatedDate).IsRequired();
             builder.Property(c => c.IsDeleted).IsRequired();
 
             /* EntityBase */
-            builder.Property(c => c.Id).ValueGeneratedOnAdd();
-            builder.Property(c => c.CreatedDate).IsRequired();
-            builder.Property(c => c.CreatedByName).IsRequired();
-            builder.Property(c => c.CreatedByName).HasMaxLength(50);
-            builder.Property(c => c.ModifiedDate).IsRequired();
-            builder.Property(c => c.ModifiedByName).IsRequired();
-            builder.Property(c => c.ModifiedByName).HasMaxLength(50);
-            builder.Property(c => c.IsActive).IsRequired();
-            builder.Property(c => c.IsDeleted).IsRequired();
-            builder.Property(c => c.IsModified).IsRequired();
+            builder.HasKey(eb => eb.Id);
+            builder.Property(eb => eb.Id).IsRequired().UseIdentityColumn();
+            builder.Property(eb => eb.CreatedDate).IsRequired();
+            builder.Property(eb => eb.CreatedByName).IsRequired();
+            builder.Property(eb => eb.CreatedByName).HasMaxLength(50);
+            builder.Property(eb => eb.ModifiedDate).IsRequired();
+            builder.Property(eb => eb.ModifiedByName).IsRequired();
+            builder.Property(eb => eb.ModifiedByName).HasMaxLength(50);
+            builder.Property(eb => eb.IsActive).IsRequired();
+            builder.Property(eb => eb.IsDeleted).IsRequired();
+            builder.Property(eb => eb.IsModified).IsRequired();
 
             builder.HasData(
                 new Course

@@ -9,18 +9,16 @@ using System.Threading.Tasks;
 
 namespace OnlineAcademy.DataAccess.Concrete.EntityFramework.Mappings
 {
-    public class CommentMap : IEntityTypeConfiguration<Comment>
+    public class LessonMap : IEntityTypeConfiguration<Lesson>
     {
-        public void Configure(EntityTypeBuilder<Comment> builder)
+        public void Configure(EntityTypeBuilder<Lesson> builder)
         {
-            builder.ToTable("Comments");
+            builder.ToTable("Lessons");
 
             builder.Property(c => c.Title).IsRequired().HasMaxLength(150);
-            builder.Property(c => c.Message).IsRequired();
-            builder.Property(c => c.IsDeleted).IsRequired();
-            builder.Property(c => c.CreatedDate).IsRequired();
-            builder.Property(c => c.UserId).IsRequired();
-            builder.Property(c => c.LessonId).IsRequired();
+            builder.Property(l => l.Length).IsRequired();
+            builder.Property(l => l.Video).IsRequired().HasMaxLength(200);
+            builder.Property(l => l.SectionId).IsRequired();
 
             /* EntityBase */
             builder.HasKey(eb => eb.Id);
@@ -35,17 +33,16 @@ namespace OnlineAcademy.DataAccess.Concrete.EntityFramework.Mappings
             builder.Property(eb => eb.IsDeleted).IsRequired();
             builder.Property(eb => eb.IsModified).IsRequired();
 
-            builder.HasOne(c => c.User).WithMany(u => u.Comments).HasForeignKey(c => c.UserId);
-            builder.HasOne(c => c.Lesson).WithMany(l => l.Comments).HasForeignKey(c => c.LessonId);
+            builder.HasOne(l => l.Section).WithMany(s => s.Lessons).HasForeignKey(l => l.SectionId);
 
             builder.HasData(
-                new Comment
+                new Lesson
                 {
                     Id = 1,
-                    Title = "Teşekkür",
-                    Message = "Eğitim çok başarılı.",
-                    LessonId = 1,
-                    UserId = 3,
+                    Title = "Section 1 Lesson 1",
+                    Length = 15,
+                    Video = @"https://www.youtube.com/watch?v=w7ejDZ8SWv8&ab_channel=TraversyMedia",
+                    SectionId = 1,
                     CreatedDate = DateTime.Now,
                     CreatedByName = "Initial Create",
                     ModifiedDate = null,
@@ -54,13 +51,28 @@ namespace OnlineAcademy.DataAccess.Concrete.EntityFramework.Mappings
                     IsDeleted = false,
                     IsModified = false
                 },
-                new Comment
+                new Lesson
                 {
                     Id = 2,
-                    Title = "Tebrik",
-                    Message = "Tebrikler. Eğitim çok başarılı.",
-                    LessonId = 1,
-                    UserId = 4,
+                    Title = "Section 1 Lesson 2",
+                    Length = 23,
+                    Video = @"https://www.youtube.com/watch?v=dGcsHMXbSOA&ab_channel=DevEd",
+                    SectionId = 1,
+                    CreatedDate = DateTime.Now,
+                    CreatedByName = "Initial Create",
+                    ModifiedDate = null,
+                    ModifiedByName = null,
+                    IsActive = true,
+                    IsDeleted = false,
+                    IsModified = false
+                },
+                new Lesson
+                {
+                    Id = 3,
+                    Title = "Section 2 Lesson 1",
+                    Length = 23,
+                    Video = @"https://www.youtube.com/watch?v=Law7wfdg_ls&ab_channel=DevEd",
+                    SectionId = 2,
                     CreatedDate = DateTime.Now,
                     CreatedByName = "Initial Create",
                     ModifiedDate = null,

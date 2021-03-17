@@ -9,18 +9,13 @@ using System.Threading.Tasks;
 
 namespace OnlineAcademy.DataAccess.Concrete.EntityFramework.Mappings
 {
-    public class CommentMap : IEntityTypeConfiguration<Comment>
+    public class SectionMap : IEntityTypeConfiguration<Section>
     {
-        public void Configure(EntityTypeBuilder<Comment> builder)
+        public void Configure(EntityTypeBuilder<Section> builder)
         {
-            builder.ToTable("Comments");
+            builder.ToTable("Sections");
 
-            builder.Property(c => c.Title).IsRequired().HasMaxLength(150);
-            builder.Property(c => c.Message).IsRequired();
-            builder.Property(c => c.IsDeleted).IsRequired();
-            builder.Property(c => c.CreatedDate).IsRequired();
-            builder.Property(c => c.UserId).IsRequired();
-            builder.Property(c => c.LessonId).IsRequired();
+            builder.Property(s => s.Title).IsRequired().HasMaxLength(150);
 
             /* EntityBase */
             builder.HasKey(eb => eb.Id);
@@ -35,17 +30,14 @@ namespace OnlineAcademy.DataAccess.Concrete.EntityFramework.Mappings
             builder.Property(eb => eb.IsDeleted).IsRequired();
             builder.Property(eb => eb.IsModified).IsRequired();
 
-            builder.HasOne(c => c.User).WithMany(u => u.Comments).HasForeignKey(c => c.UserId);
-            builder.HasOne(c => c.Lesson).WithMany(l => l.Comments).HasForeignKey(c => c.LessonId);
+            builder.HasOne(s => s.Course).WithMany(c => c.Sections).HasForeignKey(s => s.CorseId);
 
             builder.HasData(
-                new Comment
+                new Section
                 {
                     Id = 1,
-                    Title = "Teşekkür",
-                    Message = "Eğitim çok başarılı.",
-                    LessonId = 1,
-                    UserId = 3,
+                    Title = "Course 1 Section 1",
+                    CorseId = 1,
                     CreatedDate = DateTime.Now,
                     CreatedByName = "Initial Create",
                     ModifiedDate = null,
@@ -54,13 +46,24 @@ namespace OnlineAcademy.DataAccess.Concrete.EntityFramework.Mappings
                     IsDeleted = false,
                     IsModified = false
                 },
-                new Comment
+                new Section
                 {
                     Id = 2,
-                    Title = "Tebrik",
-                    Message = "Tebrikler. Eğitim çok başarılı.",
-                    LessonId = 1,
-                    UserId = 4,
+                    Title = "Course 1 Section 2",
+                    CorseId = 1,
+                    CreatedDate = DateTime.Now,
+                    CreatedByName = "Initial Create",
+                    ModifiedDate = null,
+                    ModifiedByName = null,
+                    IsActive = true,
+                    IsDeleted = false,
+                    IsModified = false
+                },
+                new Section
+                {
+                    Id = 3,
+                    Title = "Course 2 Section 1",
+                    CorseId = 2,
                     CreatedDate = DateTime.Now,
                     CreatedByName = "Initial Create",
                     ModifiedDate = null,

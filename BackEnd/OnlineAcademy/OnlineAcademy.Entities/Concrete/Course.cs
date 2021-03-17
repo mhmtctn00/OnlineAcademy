@@ -14,5 +14,6 @@ namespace OnlineAcademy.Entities.Concrete
         public virtual ICollection<CourseCategory> CourseCategories { get; set; }
         public virtual ICollection<CourseStudent> CourseStudents { get; set; }
         public virtual ICollection<CourseTeacher> CourseTeachers { get; set; }
+        public virtual ICollection<Section> Sections { get; set; }
     }
 }

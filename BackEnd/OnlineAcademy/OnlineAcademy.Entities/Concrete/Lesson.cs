@@ -14,6 +14,7 @@ namespace OnlineAcademy.Entities.Concrete
         public int Length { get; set; }
         public string Video { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
+        public virtual Section Section { get; set; }
 
     }
 }
