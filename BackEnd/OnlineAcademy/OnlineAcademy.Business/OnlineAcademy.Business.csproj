@@ -4,4 +4,14 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj" />
+    <ProjectReference Include="..\OnlineAcademy.DataAccess\OnlineAcademy.DataAccess.csproj" />
+    <ProjectReference Include="..\OnlineAcademy.Entities\OnlineAcademy.Entities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
+  </ItemGroup>
+
 </Project>

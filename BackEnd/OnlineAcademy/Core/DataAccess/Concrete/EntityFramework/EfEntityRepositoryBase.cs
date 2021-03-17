@@ -36,7 +36,10 @@ namespace Core.DataAccess.Concrete.EntityFramework
 
         public async Task<IEnumerable<TEntity>> GetListAsync(Expression<Func<TEntity, bool>> predicate = null)
         {
-            return await _context.Set<TEntity>().Where(predicate).ToListAsync();
+            if (predicate == null)
+                return await _context.Set<TEntity>().ToListAsync();
+            else
+                return await _context.Set<TEntity>().Where(predicate).ToListAsync();
         }
 
         public async Task UpdateAsync(TEntity entity)
