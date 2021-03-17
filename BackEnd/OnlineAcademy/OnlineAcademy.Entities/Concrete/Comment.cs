@@ -7,16 +7,12 @@ using System.Threading.Tasks;
 
 namespace OnlineAcademy.Entities.Concrete
 {
-    public class Comment : IEntity
+    public class Comment : EntityBase, IEntity
     {
-        public int Id { get; set; }
         public int UserId { get; set; }
         public int LessonId { get; set; }
         public string Title { get; set; }
         public string Message { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime? UpdatedDate { get; set; }
-        public bool IsDeleted { get; set; }
         public virtual User User { get; set; }
         public virtual Lesson Lesson { get; set; }
     }

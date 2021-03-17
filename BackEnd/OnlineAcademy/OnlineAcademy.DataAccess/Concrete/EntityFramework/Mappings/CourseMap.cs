@@ -22,6 +22,18 @@ namespace OnlineAcademy.DataAccess.Concrete.EntityFramework.Mappings
             builder.Property(c => c.CreatedDate).IsRequired();
             builder.Property(c => c.IsDeleted).IsRequired();
 
+            /* EntityBase */
+            builder.Property(c => c.Id).ValueGeneratedOnAdd();
+            builder.Property(c => c.CreatedDate).IsRequired();
+            builder.Property(c => c.CreatedByName).IsRequired();
+            builder.Property(c => c.CreatedByName).HasMaxLength(50);
+            builder.Property(c => c.ModifiedDate).IsRequired();
+            builder.Property(c => c.ModifiedByName).IsRequired();
+            builder.Property(c => c.ModifiedByName).HasMaxLength(50);
+            builder.Property(c => c.IsActive).IsRequired();
+            builder.Property(c => c.IsDeleted).IsRequired();
+            builder.Property(c => c.IsModified).IsRequired();
+
             builder.HasData(
                 new Course
                 {
@@ -29,9 +41,12 @@ namespace OnlineAcademy.DataAccess.Concrete.EntityFramework.Mappings
                     Title = "Sıfırdan İleri Seviye React Kursu!",
                     Description = "Bu kursta sıfırdan başlayarak ileri düzeyde React öğreneceksiniz.",
                     CreatedDate = DateTime.Now,
-                    UpdatedDate = null,
+                    CreatedByName = "Initial Create",
+                    ModifiedDate = null,
+                    ModifiedByName = null,
+                    IsActive = true,
                     IsDeleted = false,
-                    IsActive = true
+                    IsModified = false
                 },
                 new Course
                 {
@@ -39,9 +54,12 @@ namespace OnlineAcademy.DataAccess.Concrete.EntityFramework.Mappings
                     Title = "Sıfırdan İleri Seviye JavaScript Kursu!",
                     Description = "Bu kursta sıfırdan başlayarak ileri düzeyde JavaScript öğreneceksiniz.",
                     CreatedDate = DateTime.Now,
-                    UpdatedDate = null,
+                    CreatedByName = "Initial Create",
+                    ModifiedDate = null,
+                    ModifiedByName = null,
+                    IsActive = true,
                     IsDeleted = false,
-                    IsActive = true
+                    IsModified = false
                 }
                 );
 

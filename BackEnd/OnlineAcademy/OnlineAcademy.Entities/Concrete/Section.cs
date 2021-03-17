@@ -7,13 +7,9 @@ using System.Threading.Tasks;
 
 namespace OnlineAcademy.Entities.Concrete
 {
-    public class Section : IEntity
+    public class Section : EntityBase, IEntity
     {
-        public int Id { get; set; }
         public int CorseId { get; set; }
         public string Title { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime UpdatedDate { get; set; }
-        public bool IsDeleted { get; set; }
     }
 }
