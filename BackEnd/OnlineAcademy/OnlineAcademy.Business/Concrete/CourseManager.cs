@@ -1,9 +1,11 @@
-﻿using Core.Utilities.Results.Abstract;
+﻿using AutoMapper;
+using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.Concrete;
 using OnlineAcademy.Business.Abstract;
 using OnlineAcademy.Business.Constants;
 using OnlineAcademy.DataAccess.Abstract;
 using OnlineAcademy.Entities.Concrete;
+using OnlineAcademy.Entities.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +17,12 @@ namespace OnlineAcademy.Business.Concrete
     public class CourseManager : ICourseService
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
-        public CourseManager(IUnitOfWork unitOfWork)
+        public CourseManager(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
         public async Task<IResult> AddAsync(Course course)
@@ -32,10 +36,10 @@ namespace OnlineAcademy.Business.Concrete
             throw new NotImplementedException();
         }
 
-        public async Task<IDataResult<IEnumerable<Course>>> GetAllAsync()
+        public async Task<IDataResult<IEnumerable<CourseDto>>> GetAllAsync()
         {
             var data = await _unitOfWork.Course.GetListAsync();
-            return new SuccessDataResult<IEnumerable<Course>>(data.ToList());
+            return new SuccessDataResult<IEnumerable<CourseDto>>(_mapper.Map<IEnumerable<CourseDto>>(data.ToList()));
         }
 
         public Task<IDataResult<Course>> GetByCourseIdAsync(int id)

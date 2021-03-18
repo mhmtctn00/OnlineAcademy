@@ -1,5 +1,6 @@
 ﻿using Core.Utilities.Results.Abstract;
 using OnlineAcademy.Entities.Concrete;
+using OnlineAcademy.Entities.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,6 @@ namespace OnlineAcademy.Business.Abstract
         Task<IResult> DeleteAsync(Course course);
         Task<IResult> HardDeleteAsync(Course course);
         Task<IDataResult<Course>> GetByCourseIdAsync(int id);
-        Task<IDataResult<IEnumerable<Course>>> GetAllAsync();
+        Task<IDataResult<IEnumerable<CourseDto>>> GetAllAsync();
     }
 }

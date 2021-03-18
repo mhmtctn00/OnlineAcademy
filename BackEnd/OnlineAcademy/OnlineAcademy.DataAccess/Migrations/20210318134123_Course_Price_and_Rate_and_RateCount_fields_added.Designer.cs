@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnlineAcademy.DataAccess.Concrete.EntityFramework.Contexts;
 
 namespace OnlineAcademy.DataAccess.Migrations
 {
     [DbContext(typeof(EfOnlineAcademyContext))]
-    partial class EfOnlineAcademyContextModelSnapshot : ModelSnapshot
+    [Migration("20210318134123_Course_Price_and_Rate_and_RateCount_fields_added")]
+    partial class Course_Price_and_Rate_and_RateCount_fields_added
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
