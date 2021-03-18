@@ -16,7 +16,7 @@ namespace OnlineAcademy.Business.Abstract
         Task<IResult> UpdateAsync(Course course);
         Task<IResult> DeleteAsync(Course course);
         Task<IResult> HardDeleteAsync(Course course);
-        Task<IDataResult<Course>> GetByCourseIdAsync(int id);
+        Task<IDataResult<CourseDetailsDto>> GetByCourseIdAsync(int id);
         Task<IDataResult<IEnumerable<CourseDto>>> GetAllAsync();
     }
 }

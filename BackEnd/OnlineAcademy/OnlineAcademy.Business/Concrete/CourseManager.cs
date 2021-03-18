@@ -38,13 +38,14 @@ namespace OnlineAcademy.Business.Concrete
 
         public async Task<IDataResult<IEnumerable<CourseDto>>> GetAllAsync()
         {
-            var data = await _unitOfWork.Course.GetListAsync();
+            var data = await _unitOfWork.Course.GetCoursesWithIncludesAsync();
             return new SuccessDataResult<IEnumerable<CourseDto>>(_mapper.Map<IEnumerable<CourseDto>>(data.ToList()));
         }
 
-        public Task<IDataResult<Course>> GetByCourseIdAsync(int id)
+        public async Task<IDataResult<CourseDetailsDto>> GetByCourseIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var data = await _unitOfWork.Course.GetCourseWithIncludesByIdAsync(id);
+            return new SuccessDataResult<CourseDetailsDto>(_mapper.Map<CourseDetailsDto>(data));
         }
 
         public Task<IResult> HardDeleteAsync(Course course)
