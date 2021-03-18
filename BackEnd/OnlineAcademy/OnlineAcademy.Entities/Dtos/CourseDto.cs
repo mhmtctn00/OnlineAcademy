@@ -18,6 +18,6 @@ namespace OnlineAcademy.Entities.Dtos
         public int RateCount { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
-        public List<CourseTeacher> CourseTeachers { get; set; }
+        public List<UserDto> CourseTeachers { get; set; }
     }
 }

@@ -13,8 +13,18 @@ namespace OnlineAcademy.Business.Mappings.AutoMapper.Profiles
     {
         public DtoProfile()
         {
-            CreateMap<CourseDto, Course>().ReverseMap();
-            CreateMap<CourseDetailsDto, Course>().ReverseMap();
+            CreateMap<Course, CourseDto>()
+                .ForMember(dto => dto.CourseTeachers, opt => opt.MapFrom(x => x.CourseTeachers.Select(y => y.User).ToList())).ReverseMap();
+            CreateMap<Course, CourseDetailsDto>()
+                .ForMember(dto => dto.CourseTeachers, opt => opt.MapFrom(x => x.CourseTeachers.Select(y => y.User).ToList()))
+                .ForMember(dto => dto.CourseStudentsCount, opt => opt.MapFrom(x => x.CourseStudents.Count()))
+                .ForMember(dto => dto.CourseCategories, opt => opt.MapFrom(x => x.CourseCategories.Select(y => y.Category).ToList())).ReverseMap();
+            CreateMap<UserDto, User>().ReverseMap();
+            CreateMap<Category, CategoryDto>().ReverseMap();
+            CreateMap<Category, CategoryWithCoursesDto>().ReverseMap();
+            CreateMap<Section, SectionDto>().ReverseMap();
+            CreateMap<Lesson, LessonDto>().ReverseMap();
+            CreateMap<Comment, CommentDto>().ReverseMap();
         }
     }
 }

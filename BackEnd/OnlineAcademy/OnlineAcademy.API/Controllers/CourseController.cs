@@ -25,7 +25,7 @@ namespace OnlineAcademy.API.Controllers
             var data = await _courseService.GetAllAsync();
             return Ok(data);
         }
-        [HttpGet("id")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> Index2(int id)
         {
             var data = await _courseService.GetByCourseIdAsync(id);

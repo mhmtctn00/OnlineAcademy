@@ -10,8 +10,8 @@ namespace OnlineAcademy.Entities.Dtos
 {
     public class CourseDetailsDto : CourseDto, IDto
     {
-        public ICollection<CourseCategory> CourseCategories { get; set; }
-        public ICollection<CourseStudent> CourseStudents { get; set; }
-        public ICollection<Section> Sections { get; set; }
+        public ICollection<CategoryDto> CourseCategories { get; set; }
+        public int CourseStudentsCount { get; set; }
+        public ICollection<SectionDto> Sections { get; set; }
     }
 }
