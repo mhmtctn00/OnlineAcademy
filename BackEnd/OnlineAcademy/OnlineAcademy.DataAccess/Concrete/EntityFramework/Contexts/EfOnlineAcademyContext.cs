@@ -20,7 +20,7 @@ namespace OnlineAcademy.DataAccess.Concrete.EntityFramework.Contexts
         public DbSet<User> Users { get; set; }
         public DbSet<CourseCategory> CourseCategories { get; set; }
         public DbSet<CourseStudent> CourseStudents { get; set; }
-        public DbSet<CourseTeacher> CourseTeachers { get; set; }
+        public DbSet<CourseInstructor> CourseTeachers { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

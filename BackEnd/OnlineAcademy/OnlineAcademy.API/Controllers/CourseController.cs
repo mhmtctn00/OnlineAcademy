@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OnlineAcademy.Business.Abstract;
+using OnlineAcademy.Entities.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,16 +21,22 @@ namespace OnlineAcademy.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> GetAll()
         {
-            var data = await _courseService.GetAllAsync();
-            return Ok(data);
+            var resp = await _courseService.GetAllAsync();
+            return Ok(resp);
         }
         [HttpGet("{id}")]
-        public async Task<IActionResult> Index2(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            var data = await _courseService.GetByCourseIdAsync(id);
-            return Ok(data);
+            var resp = await _courseService.GetByIdAsync(id);
+            return Ok(resp);
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddCourse(CourseWithInstructorsGetDto courseDto)
+        {
+            var resp = await _courseService.AddAsync(courseDto);
+            return Ok(resp);
         }
     }
 }

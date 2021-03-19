@@ -6,6 +6,7 @@ using OnlineAcademy.Business.Constants;
 using OnlineAcademy.DataAccess.Abstract;
 using OnlineAcademy.Entities.Concrete;
 using OnlineAcademy.Entities.Dtos;
+using OnlineAcademy.Entities.Dtos.Get;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,37 +26,51 @@ namespace OnlineAcademy.Business.Concrete
             _mapper = mapper;
         }
 
-        public async Task<IResult> AddAsync(Course course)
+        public async Task<IResult> AddAsync(CourseWithInstructorsGetDto courseDto)
         {
-            await _unitOfWork.Course.AddAsync(course);
-            return new SuccessResult(Messages.CourseAdded);
+            try
+            {
+                await _unitOfWork.Course.AddAsync(_mapper.Map<CourseWithInstructorsGetDto, Course>(courseDto));
+                await _unitOfWork.Course.SaveAsync();
+                return new SuccessResult(Messages.CourseAdded);
+            }
+            catch (Exception ex)
+            {
+                return new ErrorResult("Hata: " + ex.Message);
+            }
+
         }
 
-        public Task<IResult> DeleteAsync(Course course)
+        public async Task<IResult> DeleteAsync(CourseWithInstructorsGetDto courseDto)
         {
-            throw new NotImplementedException();
+            var updatedCourse = _mapper.Map<CourseWithInstructorsGetDto, Course>(courseDto);
+            updatedCourse.IsDeleted = true;
+            await _unitOfWork.Course.UpdateAsync(updatedCourse);
+            return new SuccessResult("Course silindi");
         }
 
-        public async Task<IDataResult<IEnumerable<CourseDto>>> GetAllAsync()
+        public async Task<IDataResult<IEnumerable<CourseWithInstructorsGetDto>>> GetAllAsync()
         {
             var data = await _unitOfWork.Course.GetCoursesWithIncludesAsync();
-            return new SuccessDataResult<IEnumerable<CourseDto>>(_mapper.Map<IEnumerable<CourseDto>>(data.ToList()));
+            return new SuccessDataResult<IEnumerable<CourseWithInstructorsGetDto>>(_mapper.Map<IEnumerable<CourseWithInstructorsGetDto>>(data.ToList()));
         }
 
-        public async Task<IDataResult<CourseDetailsDto>> GetByCourseIdAsync(int id)
+        public async Task<IDataResult<CourseDetailsGetDto>> GetByIdAsync(int id)
         {
             var data = await _unitOfWork.Course.GetCourseWithIncludesByIdAsync(id);
-            return new SuccessDataResult<CourseDetailsDto>(_mapper.Map<CourseDetailsDto>(data));
+            return new SuccessDataResult<CourseDetailsGetDto>(_mapper.Map<CourseDetailsGetDto>(data));
         }
 
-        public Task<IResult> HardDeleteAsync(Course course)
+        public async Task<IResult> HardDeleteAsync(CourseWithInstructorsGetDto courseDto)
         {
-            throw new NotImplementedException();
+            await _unitOfWork.Course.DeleteAsync(_mapper.Map<CourseWithInstructorsGetDto, Course>(courseDto));
+            return new SuccessResult("Course kalıcı olarak silindi");
         }
 
-        public Task<IResult> UpdateAsync(Course course)
+        public async Task<IResult> UpdateAsync(CourseWithInstructorsGetDto courseDto)
         {
-            throw new NotImplementedException();
+            await _unitOfWork.Course.UpdateAsync(_mapper.Map<CourseWithInstructorsGetDto, Course>(courseDto));
+            return new SuccessResult("Course güncellendi");
         }
     }
 }

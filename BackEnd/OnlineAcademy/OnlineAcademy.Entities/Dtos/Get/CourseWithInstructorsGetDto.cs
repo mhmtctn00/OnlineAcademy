@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OnlineAcademy.Entities.Dtos
 {
-    public class CourseDto : IDto
+    public class CourseWithInstructorsGetDto : IDto
     {
         public int Id { get; set; }
         public string Title { get; set; }
@@ -18,6 +18,6 @@ namespace OnlineAcademy.Entities.Dtos
         public int RateCount { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime? ModifiedDate { get; set; }
-        public List<UserDto> CourseTeachers { get; set; }
+        public List<UserGetDto> CourseInstructors { get; set; }
     }
 }

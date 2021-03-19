@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OnlineAcademy.Entities.Concrete
 {
-    public class CourseTeacher : IEntity
+    public class CourseInstructor : IEntity
     {
         public int CourseId { get; set; }
         public int UserId { get; set; }

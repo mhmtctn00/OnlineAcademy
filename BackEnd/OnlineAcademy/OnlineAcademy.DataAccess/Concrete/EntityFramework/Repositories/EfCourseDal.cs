@@ -22,7 +22,7 @@ namespace OnlineAcademy.DataAccess.Concrete.EntityFramework.Repositories
         public async Task<IEnumerable<Course>> GetCoursesWithIncludesAsync()
         {
             var data = await _context.Set<Course>()
-                .Include(c => c.CourseTeachers).ThenInclude(t => t.User)
+                .Include(c => c.CourseInstructors).ThenInclude(t => t.User)
                 .Include(c => c.CourseCategories).ThenInclude(c => c.Category)
                 .Include(c => c.CourseStudents)
                 .Include(c => c.Sections).ThenInclude(s => s.Lessons).ThenInclude(l => l.Comments).ThenInclude(c => c.User)
@@ -32,7 +32,7 @@ namespace OnlineAcademy.DataAccess.Concrete.EntityFramework.Repositories
         public async Task<Course> GetCourseWithIncludesByIdAsync(int id)
         {
             var data = await _context.Set<Course>()
-                .Include(c => c.CourseTeachers).ThenInclude(t => t.User)
+                .Include(c => c.CourseInstructors).ThenInclude(t => t.User)
                 .Include(c => c.CourseCategories).ThenInclude(c=>c.Category)
                 .Include(c => c.CourseStudents)
                 .Include(c => c.Sections).ThenInclude(s => s.Lessons).ThenInclude(l => l.Comments).ThenInclude(c => c.User)

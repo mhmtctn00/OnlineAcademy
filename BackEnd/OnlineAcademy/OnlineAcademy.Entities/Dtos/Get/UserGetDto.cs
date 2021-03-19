@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace OnlineAcademy.Entities.Dtos
 {
-    public class SectionDto : IDto
+    public class UserGetDto : IDto
     {
-        public int id { get; set; }
-        public string Title { get; set; }
-        public ICollection<LessonDto> Lessons { get; set; }
+        public int Id { get; set; }
+        public string Email { get; set; }
+        public string Firstname { get; set; }
+        public string Lastname { get; set; }
     }
 }

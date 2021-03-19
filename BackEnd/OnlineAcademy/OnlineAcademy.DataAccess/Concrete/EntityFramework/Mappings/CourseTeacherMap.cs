@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace OnlineAcademy.DataAccess.Concrete.EntityFramework.Mappings
 {
-    public class CourseTeacherMap : IEntityTypeConfiguration<CourseTeacher>
+    public class CourseTeacherMap : IEntityTypeConfiguration<CourseInstructor>
     {
-        public void Configure(EntityTypeBuilder<CourseTeacher> builder)
+        public void Configure(EntityTypeBuilder<CourseInstructor> builder)
         {
             builder.ToTable("CourseTeachers");
 
@@ -19,8 +19,8 @@ namespace OnlineAcademy.DataAccess.Concrete.EntityFramework.Mappings
             builder.Property(cs => cs.CourseId).IsRequired();
             builder.Property(cs => cs.UserId).IsRequired();
 
-            builder.HasOne(cs => cs.Course).WithMany(c => c.CourseTeachers).HasForeignKey(cs => cs.CourseId);
-            builder.HasOne(cs => cs.User).WithMany(u => u.CourseTeachers).HasForeignKey(cs => cs.UserId);
+            builder.HasOne(cs => cs.Course).WithMany(c => c.CourseInstructors).HasForeignKey(cs => cs.CourseId);
+            builder.HasOne(cs => cs.User).WithMany(u => u.CourseInstructors).HasForeignKey(cs => cs.UserId);
 
             builder.HasData(
                 new CourseStudent

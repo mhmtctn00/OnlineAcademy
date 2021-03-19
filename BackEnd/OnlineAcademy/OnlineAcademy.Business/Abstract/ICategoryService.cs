@@ -11,12 +11,12 @@ namespace OnlineAcademy.Business.Abstract
 {
     public interface ICategoryService
     {
-        Task<IResult> AddAsync(Category course);
-        Task<IResult> UpdateAsync(Category course);
-        Task<IResult> DeleteAsync(Category course);
-        Task<IResult> HardDeleteAsync(Category course);
-        Task<IDataResult<CategoryDto>> GetByCategoryIdAsync(int id);
-        Task<IDataResult<CategoryWithCoursesDto>> GetWithCoursesByIdAsync(int id);
-        Task<IDataResult<IEnumerable<CategoryDto>>> GetAllAsync();
+        Task<IResult> AddAsync(CategoryGetDto course);
+        Task<IResult> UpdateAsync(CategoryGetDto course);
+        Task<IResult> DeleteAsync(CategoryGetDto course);
+        Task<IResult> HardDeleteAsync(CategoryGetDto course);
+        Task<IDataResult<CategoryGetDto>> GetByIdAsync(int id);
+        Task<IDataResult<CategoryWithCoursesGetDto>> GetWithCoursesByIdAsync(int id);
+        Task<IDataResult<IEnumerable<CategoryGetDto>>> GetAllAsync();
     }
 }

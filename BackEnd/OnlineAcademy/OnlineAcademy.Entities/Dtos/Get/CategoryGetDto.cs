@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace OnlineAcademy.Entities.Dtos
 {
-    public class CategoryWithCoursesDto : IDto
+    public class CategoryGetDto : IDto
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public ICollection<CourseDto> CourseCategories { get; set; }
     }
 }

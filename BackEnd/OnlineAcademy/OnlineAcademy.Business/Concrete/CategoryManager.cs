@@ -23,40 +23,50 @@ namespace OnlineAcademy.Business.Concrete
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
-        public Task<IResult> AddAsync(Category course)
+        public async Task<IResult> AddAsync(CategoryGetDto categoryDto)
         {
-            throw new NotImplementedException();
+            var addedCategory = _mapper.Map<CategoryGetDto, Category>(categoryDto);
+            await _unitOfWork.Category.AddAsync(addedCategory);
+            return new SuccessResult("Category added");
         }
 
-        public Task<IResult> DeleteAsync(Category course)
+        public async Task<IResult> DeleteAsync(CategoryGetDto categoryDto)
         {
-            throw new NotImplementedException();
+            var deletedCategory = _mapper.Map<CategoryGetDto, Category>(categoryDto);
+            deletedCategory.IsDeleted = true;
+            await _unitOfWork.Category.UpdateAsync(deletedCategory);
+            return new SuccessResult("Category deleted");
         }
 
-        public async Task<IDataResult<IEnumerable<CategoryDto>>> GetAllAsync()
+        public async Task<IDataResult<IEnumerable<CategoryGetDto>>> GetAllAsync()
         {
             var data = await _unitOfWork.Category.GetListAsync();
-            return new SuccessDataResult<IEnumerable<CategoryDto>>(_mapper.Map<IEnumerable<CategoryDto>>(data.ToList()));
+            return new SuccessDataResult<IEnumerable<CategoryGetDto>>(_mapper.Map<IEnumerable<CategoryGetDto>>(data.ToList()));
         }
-        public async Task<IDataResult<CategoryWithCoursesDto>> GetWithCoursesByIdAsync(int id)
+        public async Task<IDataResult<CategoryWithCoursesGetDto>> GetWithCoursesByIdAsync(int id)
+        {
+            var data = await _unitOfWork.Category.GetWithCoursesAsync(c => c.Id == id);
+            return new SuccessDataResult<CategoryWithCoursesGetDto>(_mapper.Map<Category, CategoryWithCoursesGetDto>(data));
+        }
+
+        public async Task<IDataResult<CategoryGetDto>> GetByIdAsync(int id)
         {
             var data = await _unitOfWork.Category.GetAsync(c => c.Id == id);
-            return new SuccessDataResult<CategoryWithCoursesDto>(_mapper.Map<CategoryWithCoursesDto>(data));
+            return new SuccessDataResult<CategoryGetDto>(_mapper.Map<Category, CategoryGetDto>(data), "Success");
         }
 
-        public Task<IDataResult<CategoryDto>> GetByCategoryIdAsync(int id)
+        public async Task<IResult> HardDeleteAsync(CategoryGetDto categoryDto)
         {
-            throw new NotImplementedException();
+            var deletedCategory = _mapper.Map<CategoryGetDto, Category>(categoryDto);
+            await _unitOfWork.Category.DeleteAsync(deletedCategory);
+            return new SuccessResult("Category hard deleted");
         }
 
-        public Task<IResult> HardDeleteAsync(Category course)
+        public async Task<IResult> UpdateAsync(CategoryGetDto categoryDto)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<IResult> UpdateAsync(Category course)
-        {
-            throw new NotImplementedException();
+            var updatedCategory = _mapper.Map<CategoryGetDto, Category>(categoryDto);
+            await _unitOfWork.Category.UpdateAsync(updatedCategory);
+            return new SuccessResult("Category deleted");
         }
     }
 }

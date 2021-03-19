@@ -1,4 +1,5 @@
 ﻿using Core.Entities.Abstract;
+using OnlineAcademy.Entities.Dtos.Get;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +8,10 @@ using System.Threading.Tasks;
 
 namespace OnlineAcademy.Entities.Dtos
 {
-    public class UserDto : IDto
+    public class CategoryWithCoursesGetDto : IDto
     {
         public int Id { get; set; }
-        public string Email { get; set; }
-        public string Firstname { get; set; }
-        public string Lastname { get; set; }
+        public string Name { get; set; }
+        public ICollection<CourseGetDto> Courses { get; set; }
     }
 }
