@@ -1,7 +1,9 @@
 ﻿using Core.Utilities.Results.Abstract;
 using OnlineAcademy.Entities.Concrete;
 using OnlineAcademy.Entities.Dtos;
+using OnlineAcademy.Entities.Dtos.Add;
 using OnlineAcademy.Entities.Dtos.Get;
+using OnlineAcademy.Entities.Dtos.Update;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,10 +15,10 @@ namespace OnlineAcademy.Business.Abstract
 {
     public interface ICourseService
     {
-        Task<IResult> AddAsync(CourseWithInstructorsGetDto course);
-        Task<IResult> UpdateAsync(CourseWithInstructorsGetDto course);
-        Task<IResult> DeleteAsync(CourseWithInstructorsGetDto course);
-        Task<IResult> HardDeleteAsync(CourseWithInstructorsGetDto course);
+        Task<IResult> AddAsync(CourseAddDto course);
+        Task<IResult> UpdateAsync(CourseUpdateDto course);
+        Task<IResult> DeleteAsync(int id);
+        Task<IResult> HardDeleteAsync(int id);
         Task<IDataResult<CourseDetailsGetDto>> GetByIdAsync(int id);
         Task<IDataResult<IEnumerable<CourseWithInstructorsGetDto>>> GetAllAsync();
     }

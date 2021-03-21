@@ -18,8 +18,6 @@ namespace OnlineAcademy.Business.DependencyResolvers.Autofac
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<EfOnlineAcademyContext>().As<DbContext>();
-            builder.RegisterType<UnitOfWork>().As<IUnitOfWork>();
 
             builder.RegisterType<EfCourseDal>().As<ICourseDal>();
             builder.RegisterType<CourseManager>().As<ICourseService>();

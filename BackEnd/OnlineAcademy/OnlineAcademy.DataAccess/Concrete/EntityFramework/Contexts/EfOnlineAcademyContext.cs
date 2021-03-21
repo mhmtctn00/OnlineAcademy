@@ -10,7 +10,6 @@ namespace OnlineAcademy.DataAccess.Concrete.EntityFramework.Contexts
 {
     public class EfOnlineAcademyContext : DbContext
     {
-
         public DbSet<Category> Categories { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Course> Courses { get; set; }

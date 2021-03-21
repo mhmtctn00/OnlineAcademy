@@ -2,6 +2,7 @@
 using Core.Utilities.Results.Abstract;
 using Microsoft.EntityFrameworkCore;
 using OnlineAcademy.DataAccess.Abstract;
+using OnlineAcademy.DataAccess.Concrete.EntityFramework.Contexts;
 using OnlineAcademy.Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -12,20 +13,18 @@ using System.Threading.Tasks;
 
 namespace OnlineAcademy.DataAccess.Concrete.EntityFramework.Repositories
 {
-    public class EfCategoryDal : EfEntityRepositoryBase<Category>, ICategoryDal
+    public class EfCategoryDal : EfEntityRepositoryBase<Category, EfOnlineAcademyContext>, ICategoryDal
     {
-        private readonly DbContext _context;
-
-        public EfCategoryDal(DbContext context) : base(context)
-        {
-            _context = context;
-        }
         public async Task<Category> GetWithCoursesAsync(Expression<Func<Category, bool>> predicate)
         {
-            var data = await _context.Set<Category>()
-                .Include(c => c.CourseCategories)
-                .ThenInclude(c => c.Course).FirstOrDefaultAsync(predicate);
-            return data;
+            using (EfOnlineAcademyContext context = new EfOnlineAcademyContext())
+            {
+                var data = await context.Set<Category>()
+                                .Include(c => c.CourseCategories)
+                                .ThenInclude(c => c.Course).FirstOrDefaultAsync(predicate);
+                return data;
+            }
+
         }
     }
 }

@@ -21,7 +21,6 @@ namespace OnlineAcademy.Business.Mappings.AutoMapper.Profiles
         public DtoProfile()
         {
             CreateMap<User, UserGetDto>().ReverseMap();
-            CreateMap<Course, CourseGetDto>().ReverseMap();
             CreateMap<Section, SectionGetDto>().ReverseMap();
             CreateMap<Lesson, LessonGetDto>().ReverseMap();
             CreateMap<Comment, CommentGetDto>().ReverseMap();
@@ -30,16 +29,7 @@ namespace OnlineAcademy.Business.Mappings.AutoMapper.Profiles
 
 
             /* Many to Many Mapping */
-            CreateMap<Course, CourseWithInstructorsGetDto>()
-                .ForMember(dto => dto.CourseInstructors, opt => opt.MapFrom(x => x.CourseInstructors.Select(y => y.User).ToList()));
-            CreateMap<CourseWithInstructorsGetDto, Course>()
-                .ForMember(opt => opt.CourseInstructors, dto => dto.MapFrom(x => x.CourseInstructors.ToList()));
 
-            CreateMap<Course, CourseDetailsGetDto>()
-                .ForMember(dto => dto.CourseInstructors, opt => opt.MapFrom(x => x.CourseInstructors.Select(y => y.User).ToList()))
-                .ForMember(dto => dto.CourseStudentsCount, opt => opt.MapFrom(x => x.CourseStudents.Count()))
-                .ForMember(dto => dto.CourseCategories, opt => opt.MapFrom(x => x.CourseCategories.Select(y => y.Category).ToList()))
-                .ReverseMap();
             CreateMap<Category, CategoryWithCoursesGetDto>()
                 .ForMember(dto => dto.Courses, opt => opt.MapFrom(x => x.CourseCategories.Select(y => y.Course).ToList()))
                 .ReverseMap();
@@ -48,7 +38,9 @@ namespace OnlineAcademy.Business.Mappings.AutoMapper.Profiles
                 .ForMember(opt => opt.UserId, dto => dto.MapFrom(x => x.Id))
                 .ReverseMap();
 
-
+            CreateMap<CategoryGetDto, CourseCategory>()
+                .ForMember(opt => opt.CategoryId, dto => dto.MapFrom(x => x.Id))
+                .ReverseMap();
         }
     }
 }
