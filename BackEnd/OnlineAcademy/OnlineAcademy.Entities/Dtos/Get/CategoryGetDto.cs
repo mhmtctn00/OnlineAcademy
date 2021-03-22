@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnlineAcademy.Entities.Dtos
+namespace OnlineAcademy.Entities.Dtos.Get
 {
     public class CategoryGetDto : IDto
     {
