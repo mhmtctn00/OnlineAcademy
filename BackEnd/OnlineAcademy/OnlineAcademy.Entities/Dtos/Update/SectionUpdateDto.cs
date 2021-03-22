@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnlineAcademy.Entities.Dtos.Add
+namespace OnlineAcademy.Entities.Dtos.Update
 {
-    public class CategoryAddDto : IDto
+    public class SectionUpdateDto : IDto
     {
-        public int? ParentId { get; set; }
-        public string Name { get; set; }
+        public int Id { get; set; }
+        public string Title { get; set; }
     }
 }

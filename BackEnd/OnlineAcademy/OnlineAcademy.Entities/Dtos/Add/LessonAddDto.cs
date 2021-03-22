@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace OnlineAcademy.Entities.Dtos.Add
 {
-    public class CategoryAddDto : IDto
+    public class LessonAddDto : IDto
     {
-        public int? ParentId { get; set; }
-        public string Name { get; set; }
+        public int SectionId { get; set; }
+        public string Title { get; set; }
+        public string Video { get; set; }
     }
 }
