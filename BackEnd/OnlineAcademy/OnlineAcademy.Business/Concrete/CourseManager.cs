@@ -5,7 +5,7 @@ using OnlineAcademy.Business.Abstract;
 using OnlineAcademy.Business.Constants;
 using OnlineAcademy.DataAccess.Abstract;
 using OnlineAcademy.Entities.Concrete;
-using OnlineAcademy.Entities.Dtos;
+using OnlineAcademy.Entities.Dtos.Get;
 using OnlineAcademy.Entities.Dtos.Add;
 using OnlineAcademy.Entities.Dtos.Get;
 using OnlineAcademy.Entities.Dtos.Update;

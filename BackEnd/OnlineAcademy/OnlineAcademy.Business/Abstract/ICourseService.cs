@@ -1,6 +1,6 @@
 ﻿using Core.Utilities.Results.Abstract;
 using OnlineAcademy.Entities.Concrete;
-using OnlineAcademy.Entities.Dtos;
+using OnlineAcademy.Entities.Dtos.Get;
 using OnlineAcademy.Entities.Dtos.Add;
 using OnlineAcademy.Entities.Dtos.Get;
 using OnlineAcademy.Entities.Dtos.Update;

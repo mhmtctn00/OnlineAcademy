@@ -4,7 +4,9 @@ using Core.Utilities.Results.Concrete;
 using OnlineAcademy.Business.Abstract;
 using OnlineAcademy.DataAccess.Abstract;
 using OnlineAcademy.Entities.Concrete;
-using OnlineAcademy.Entities.Dtos;
+using OnlineAcademy.Entities.Dtos.Get;
+using OnlineAcademy.Entities.Dtos.Add;
+using OnlineAcademy.Entities.Dtos.Update;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,18 +25,18 @@ namespace OnlineAcademy.Business.Concrete
             _categoryDal = categoryDal;
             _mapper = mapper;
         }
-        public async Task<IResult> AddAsync(CategoryGetDto categoryDto)
+        public async Task<IResult> AddAsync(CategoryAddDto categoryDto)
         {
-            var addedCategory = _mapper.Map<CategoryGetDto, Category>(categoryDto);
+            var addedCategory = _mapper.Map<CategoryAddDto, Category>(categoryDto);
             await _categoryDal.AddAsync(addedCategory);
             return new SuccessResult("Category added");
         }
 
-        public async Task<IResult> DeleteAsync(CategoryGetDto categoryDto)
+        public async Task<IResult> DeleteAsync(int id)
         {
-            var deletedCategory = _mapper.Map<CategoryGetDto, Category>(categoryDto);
-            deletedCategory.IsDeleted = true;
-            await _categoryDal.UpdateAsync(deletedCategory);
+            var category = await _categoryDal.GetAsync(c => c.Id == id);
+            category.IsDeleted = true;
+            await _categoryDal.UpdateAsync(category);
             return new SuccessResult("Category deleted");
         }
 
@@ -55,17 +57,17 @@ namespace OnlineAcademy.Business.Concrete
             return new SuccessDataResult<CategoryGetDto>(_mapper.Map<Category, CategoryGetDto>(data), "Success");
         }
 
-        public async Task<IResult> HardDeleteAsync(CategoryGetDto categoryDto)
+        public async Task<IResult> HardDeleteAsync(int id)
         {
-            var deletedCategory = _mapper.Map<CategoryGetDto, Category>(categoryDto);
-            await _categoryDal.DeleteAsync(deletedCategory);
+            var category = await _categoryDal.GetAsync(x => x.Id == id);
+            await _categoryDal.DeleteAsync(category);
             return new SuccessResult("Category hard deleted");
         }
 
-        public async Task<IResult> UpdateAsync(CategoryGetDto categoryDto)
+        public async Task<IResult> UpdateAsync(CategoryUpdateDto categoryDto)
         {
-            var updatedCategory = _mapper.Map<CategoryGetDto, Category>(categoryDto);
-            await _categoryDal.UpdateAsync( updatedCategory);
+            var updatedCategory = _mapper.Map<CategoryUpdateDto, Category>(categoryDto);
+            await _categoryDal.UpdateAsync(updatedCategory);
             return new SuccessResult("Category deleted");
         }
     }

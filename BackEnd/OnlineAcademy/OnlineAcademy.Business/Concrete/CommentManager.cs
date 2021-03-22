@@ -1,44 +1,70 @@
 ﻿using Core.Utilities.Results.Abstract;
 using OnlineAcademy.Business.Abstract;
-using OnlineAcademy.Entities.Dtos;
+using OnlineAcademy.Entities.Dtos.Get;
+using OnlineAcademy.Entities.Dtos.Add;
+using OnlineAcademy.Entities.Dtos.Update;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OnlineAcademy.DataAccess.Abstract;
+using AutoMapper;
+using OnlineAcademy.Entities.Concrete;
+using Core.Utilities.Results.Concrete;
 
 namespace OnlineAcademy.Business.Concrete
 {
     public class CommentManager : ICommentService
     {
-        public Task<IResult> AddAsync(CommentGetDto commentDto)
+        private readonly ICommentDal _commentDal;
+        private readonly IMapper _mapper;
+
+        public CommentManager(ICommentDal commentDal, IMapper mapper)
         {
-            throw new NotImplementedException();
+            _commentDal = commentDal;
+            _mapper = mapper;
         }
 
-        public Task<IResult> DeleteAsync(CommentGetDto commentDto)
+        public async Task<IResult> AddAsync(CommentAddDto commentDto)
         {
-            throw new NotImplementedException();
+            var commnet = _mapper.Map<CommentAddDto, Comment>(commentDto);
+            await _commentDal.AddAsync(commnet);
+            return new SuccessResult("Comment added.");
         }
 
-        public Task<IDataResult<IEnumerable<CommentGetDto>>> GetAllAsync()
+        public async Task<IResult> DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            var comment = await _commentDal.GetAsync(c => c.Id == id);
+            comment.IsDeleted = true;
+            await _commentDal.UpdateAsync(comment);
+            return new SuccessResult("Comment updated.");
         }
 
-        public Task<IDataResult<CommentGetDto>> GetByIdAsync(int id)
+        public async Task<IDataResult<IEnumerable<CommentGetDto>>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            var comments = await _commentDal.GetListAsync();
+            return new SuccessDataResult<IEnumerable<CommentGetDto>>(_mapper.Map<IEnumerable<Comment>, IEnumerable<CommentGetDto>>(comments));
         }
 
-        public Task<IResult> HardDeleteAsync(CommentGetDto commentDto)
+        public async Task<IDataResult<CommentGetDto>> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var comment = await _commentDal.GetAsync(c => c.Id == id);
+            return new SuccessDataResult<CommentGetDto>(_mapper.Map<Comment, CommentGetDto>(comment));
         }
 
-        public Task<IResult> UpdateAsync(CommentGetDto commentDto)
+        public async Task<IResult> HardDeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            var comment = await _commentDal.GetAsync(c => c.Id == id);
+            await _commentDal.DeleteAsync(comment);
+            return new SuccessResult("Comment hard deleted");
+        }
+
+        public async Task<IResult> UpdateAsync(CommentUpdateDto commentDto)
+        {
+            var comment = _mapper.Map<CommentUpdateDto, Comment>(commentDto);
+            await _commentDal.UpdateAsync(comment);
+            return new SuccessResult("Comment updated");
         }
     }
 }
