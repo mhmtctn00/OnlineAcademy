@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using OnlineAcademy.Business.Abstract;
-using OnlineAcademy.Entities.Dtos;
+using OnlineAcademy.Entities.Dtos.Get;
 using OnlineAcademy.Entities.Dtos.Add;
 using OnlineAcademy.Entities.Dtos.Update;
 using System;
