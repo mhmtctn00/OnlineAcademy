@@ -1,4 +1,7 @@
 ﻿using Autofac;
+using Autofac.Extras.DynamicProxy;
+using Castle.DynamicProxy;
+using Core.Utilities.Interceptors;
 using Microsoft.EntityFrameworkCore;
 using OnlineAcademy.Business.Abstract;
 using OnlineAcademy.Business.Concrete;
@@ -38,6 +41,14 @@ namespace OnlineAcademy.Business.DependencyResolvers.Autofac
 
             builder.RegisterType<EfUserDal>().As<IUserDal>();
             builder.RegisterType<UserManager>().As<IUserService>();
+
+            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+
+            builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
+                .EnableInterfaceInterceptors(new ProxyGenerationOptions()
+                {
+                    Selector = new AspectInterceptorSelector()
+                }).SingleInstance();
         }
     }
 }

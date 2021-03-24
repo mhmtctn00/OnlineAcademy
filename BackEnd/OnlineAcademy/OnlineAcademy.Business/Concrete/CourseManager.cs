@@ -7,13 +7,13 @@ using OnlineAcademy.DataAccess.Abstract;
 using OnlineAcademy.Entities.Concrete;
 using OnlineAcademy.Entities.Dtos.Get;
 using OnlineAcademy.Entities.Dtos.Add;
-using OnlineAcademy.Entities.Dtos.Get;
 using OnlineAcademy.Entities.Dtos.Update;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using OnlineAcademy.Business.ValidationRules.FluentValidation;
+using Core.Aspects.Autofac.Validation;
+using Core.Aspects.Autofac.Exception;
 
 namespace OnlineAcademy.Business.Concrete
 {
@@ -28,11 +28,23 @@ namespace OnlineAcademy.Business.Concrete
             _mapper = mapper;
         }
 
+        [ExceptionLogAspect]
+        [FluentValidationAspect(typeof(CourseAddDtoValidator))]
         public async Task<IResult> AddAsync(CourseAddDto courseDto)
         {
-            var course = _mapper.Map<CourseAddDto, Course>(courseDto);
-            await _courseDal.AddAsync(course);
-            return new SuccessResult(Messages.CourseAdded);
+            try
+            {
+                var course = _mapper.Map<CourseAddDto, Course>(courseDto);
+
+                await _courseDal.AddAsync(course);
+                return new SuccessResult(Messages.CourseAdded);
+            }
+            catch (System.Exception)
+            {
+                return new ErrorResult("HATA");
+                throw;
+            }
+
 
         }
 
