@@ -35,25 +35,25 @@ namespace OnlineAcademy.API.Controllers
         [HttpPost]
         public async Task<IActionResult> AddCategory(CategoryAddDto categoryDto)
         {
-            var resp = _categoryService.AddAsync(categoryDto);
+            var resp = await _categoryService.AddAsync(categoryDto);
             return Ok(resp);
         }
         [HttpPut]
         public async Task<IActionResult> UpdateCategory(CategoryUpdateDto categoryDto)
         {
-            var resp = _categoryService.UpdateAsync(categoryDto);
+            var resp = await _categoryService.UpdateAsync(categoryDto);
             return Ok(resp);
         }
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCategory(int id)
         {
-            var resp = _categoryService.DeleteAsync(id);
+            var resp = await _categoryService.DeleteAsync(id);
             return Ok(resp);
         }
         [HttpDelete("{id}/hard")]
         public async Task<IActionResult> HardDeleteCategory(int id)
         {
-            var resp = _categoryService.HardDeleteAsync(id);
+            var resp = await _categoryService.HardDeleteAsync(id);
             return Ok(resp);
         }
     }

@@ -23,22 +23,21 @@ namespace OnlineAcademy.Business.DependencyResolvers.Autofac
             builder.RegisterType<CourseManager>().As<ICourseService>();
 
             builder.RegisterType<EfLessonDal>().As<ILessonDal>();
-
+            builder.RegisterType<LessonManager>().As<ILessonService>();
 
             builder.RegisterType<EfSectionDal>().As<ISectionDal>();
-
+            builder.RegisterType<SectionManager>().As<ISectionService>();
 
             builder.RegisterType<EfCategoryDal>().As<ICategoryDal>();
             builder.RegisterType<CategoryManager>().As<ICategoryService>();
 
             builder.RegisterType<EfCommentDal>().As<ICommentDal>();
-
+            builder.RegisterType<CommentManager>().As<ICommentService>();
 
             builder.RegisterType<EfRoleDal>().As<IRoleDal>();
 
-
             builder.RegisterType<EfUserDal>().As<IUserDal>();
-
+            builder.RegisterType<UserManager>().As<IUserService>();
         }
     }
 }
