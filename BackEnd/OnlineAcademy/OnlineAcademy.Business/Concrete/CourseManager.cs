@@ -32,20 +32,10 @@ namespace OnlineAcademy.Business.Concrete
         [FluentValidationAspect(typeof(CourseAddDtoValidator))]
         public async Task<IResult> AddAsync(CourseAddDto courseDto)
         {
-            try
-            {
-                var course = _mapper.Map<CourseAddDto, Course>(courseDto);
+            var course = _mapper.Map<CourseAddDto, Course>(courseDto);
 
-                await _courseDal.AddAsync(course);
-                return new SuccessResult(Messages.CourseAdded);
-            }
-            catch (System.Exception)
-            {
-                return new ErrorResult("HATA");
-                throw;
-            }
-
-
+            await _courseDal.AddAsync(course);
+            return new SuccessResult(Messages.CourseAdded);
         }
 
         public async Task<IResult> DeleteAsync(int id)

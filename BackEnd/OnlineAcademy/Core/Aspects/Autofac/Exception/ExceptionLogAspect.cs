@@ -14,7 +14,7 @@ namespace Core.Aspects.Autofac.Exception
         }
         protected override void OnException(IInvocation invocation, System.Exception e)
         {
-            
+            //throw new System.Exception();
         }
     }
 }
