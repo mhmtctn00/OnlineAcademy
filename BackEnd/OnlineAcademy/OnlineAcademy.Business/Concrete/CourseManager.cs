@@ -14,6 +14,8 @@ using System.Threading.Tasks;
 using OnlineAcademy.Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
 using Core.Aspects.Autofac.Exception;
+using Core.Aspects.Autofac.Logging;
+using Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 
 namespace OnlineAcademy.Business.Concrete
 {
@@ -45,7 +47,7 @@ namespace OnlineAcademy.Business.Concrete
             await _courseDal.UpdateAsync(course);
             return new SuccessResult("Course silindi");
         }
-
+        [LogAspect(typeof(FileLogger))]
         public async Task<IDataResult<IEnumerable<CourseWithInstructorsGetDto>>> GetAllAsync()
         {
             var data = await _courseDal.GetCoursesWithIncludesAsync();
