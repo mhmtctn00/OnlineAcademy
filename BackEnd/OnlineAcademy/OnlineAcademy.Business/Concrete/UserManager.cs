@@ -1,9 +1,12 @@
 ﻿using AutoMapper;
 using Core.Utilities.Results.Abstract;
+using Core.Utilities.Results.ComplexTypes;
 using Core.Utilities.Results.Concrete;
+using Core.Utilities.Security.JWT;
 using OnlineAcademy.Business.Abstract;
 using OnlineAcademy.DataAccess.Abstract;
 using OnlineAcademy.Entities.Concrete;
+using OnlineAcademy.Entities.Dtos;
 using OnlineAcademy.Entities.Dtos.Add;
 using OnlineAcademy.Entities.Dtos.Get;
 using OnlineAcademy.Entities.Dtos.Update;
@@ -32,6 +35,7 @@ namespace OnlineAcademy.Business.Concrete
             return new SuccessResult("User Added.");
         }
 
+
         public async Task<IResult> DeleteAsync(int id)
         {
             var user = await _userDal.GetAsync(s => s.Id == id);
@@ -46,11 +50,19 @@ namespace OnlineAcademy.Business.Concrete
             return new SuccessDataResult<IEnumerable<UserGetDto>>(_mapper.Map<IEnumerable<User>, IEnumerable<UserGetDto>>(users));
         }
 
+        public async Task<IDataResult<UserGetDto>> GetByEmailAsync(string email)
+        {
+            var user = await _userDal.GetAsync(s => s.Email == email);
+            return new SuccessDataResult<UserGetDto>(_mapper.Map<User, UserGetDto>(user));
+        }
+
         public async Task<IDataResult<UserGetDto>> GetByIdAsync(int id)
         {
             var user = await _userDal.GetAsync(s => s.Id == id);
             return new SuccessDataResult<UserGetDto>(_mapper.Map<User, UserGetDto>(user));
         }
+
+
 
         public async Task<IResult> HardDeleteAsync(int id)
         {
@@ -58,6 +70,7 @@ namespace OnlineAcademy.Business.Concrete
             await _userDal.DeleteAsync(user);
             return new SuccessResult("User hard deleted.");
         }
+
 
         public async Task<IResult> UpdateAsync(UserUpdateDto userDto)
         {
