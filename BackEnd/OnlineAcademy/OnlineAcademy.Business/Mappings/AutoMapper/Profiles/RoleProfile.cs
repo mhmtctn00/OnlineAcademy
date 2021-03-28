@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Core.Entities.Concrete;
 using OnlineAcademy.Entities.Concrete;
 using OnlineAcademy.Entities.Dtos.Add;
 using OnlineAcademy.Entities.Dtos.Get;

@@ -1,6 +1,5 @@
 ﻿using FluentValidation;
-using OnlineAcademy.Entities.Concrete;
-using OnlineAcademy.Entities.Dtos.Add;
+using OnlineAcademy.Entities.Dtos.Update;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +8,12 @@ using System.Threading.Tasks;
 
 namespace OnlineAcademy.Business.ValidationRules.FluentValidation
 {
-    public class CourseAddDtoValidator : AbstractValidator<CourseAddDto>
+    public class CourseUpdateDtoValidator : AbstractValidator<CourseUpdateDto>
     {
-        public CourseAddDtoValidator()
+        public CourseUpdateDtoValidator()
         {
+            RuleFor(c => c.Id).NotEmpty();
+            RuleFor(c => c.Id).GreaterThan(0);
             RuleFor(c => c.Title).NotEmpty();
             RuleFor(c => c.Title).Length(5, 100);
             RuleFor(c => c.Description).NotEmpty();

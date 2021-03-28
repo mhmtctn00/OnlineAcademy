@@ -15,8 +15,9 @@ namespace OnlineAcademy.DataAccess.Concrete.EntityFramework.Mappings
         {
             builder.ToTable("Users");
 
-            builder.Property(u => u.Email).IsRequired().HasMaxLength(50);
-            builder.Property(u => u.Password).IsRequired().HasMaxLength(20);
+            builder.Property(u => u.Email).IsRequired().HasMaxLength(70);
+            builder.Property(u => u.PasswordSalt).IsRequired();
+            builder.Property(u => u.PasswordHash).IsRequired();
             builder.Property(u => u.Firstname).IsRequired().HasMaxLength(50);
             builder.Property(u => u.Lastname).IsRequired().HasMaxLength(50);
             builder.Property(u => u.CreatedDate).IsRequired();
@@ -40,7 +41,8 @@ namespace OnlineAcademy.DataAccess.Concrete.EntityFramework.Mappings
                 {
                     Id = 1,
                     Email = "mhmt.cetin00@gmail.com",
-                    Password = "123456",
+                    PasswordSalt = new byte[] { 1, 2, 3, 4 },
+                    PasswordHash = new byte[] { 1, 2, 3, 4 },
                     Firstname = "Mehmet",
                     Lastname = "Çetin",
                     CreatedDate = DateTime.Now,
@@ -55,7 +57,8 @@ namespace OnlineAcademy.DataAccess.Concrete.EntityFramework.Mappings
                 {
                     Id = 2,
                     Email = "mail@mail.com",
-                    Password = "123456",
+                    PasswordSalt = new byte[] { 1, 2, 3, 4 },
+                    PasswordHash = new byte[] { 1, 2, 3, 4 },
                     Firstname = "MailF",
                     Lastname = "MailL",
                     CreatedDate = DateTime.Now,
@@ -71,7 +74,8 @@ namespace OnlineAcademy.DataAccess.Concrete.EntityFramework.Mappings
                 {
                     Id = 3,
                     Email = "student1@gmail.com",
-                    Password = "123456",
+                    PasswordSalt = new byte[] { 1, 2, 3, 4 },
+                    PasswordHash = new byte[] { 1, 2, 3, 4 },
                     Firstname = "student1F",
                     Lastname = "student1L",
                     CreatedDate = DateTime.Now,
@@ -86,7 +90,8 @@ namespace OnlineAcademy.DataAccess.Concrete.EntityFramework.Mappings
                 {
                     Id = 4,
                     Email = "student2@mail.com",
-                    Password = "123456",
+                    PasswordSalt = new byte[] { 1, 2, 3, 4 },
+                    PasswordHash = new byte[] { 1, 2, 3, 4 },
                     Firstname = "student2F",
                     Lastname = "student2L",
                     CreatedDate = DateTime.Now,

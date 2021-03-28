@@ -11,6 +11,5 @@ namespace OnlineAcademy.Entities.Dtos.Add
     {
         public int SectionId { get; set; }
         public string Title { get; set; }
-        public string Video { get; set; }
     }
 }

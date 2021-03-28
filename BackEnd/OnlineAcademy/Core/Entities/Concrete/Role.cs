@@ -5,12 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnlineAcademy.Entities.Concrete
+namespace Core.Entities.Concrete
 {
-    public class Role : EntityBase, IEntity
+    public class Role : EntityBase,IEntity
     {
         public string Name { get; set; }
         public virtual ICollection<UserRole> UserRoles { get; set; }
-
     }
 }

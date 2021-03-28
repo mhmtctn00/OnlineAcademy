@@ -1,4 +1,5 @@
 ﻿using Core.DataAccess.Abstract;
+using Core.Entities.Concrete;
 using OnlineAcademy.Entities.Concrete;
 using System;
 using System.Collections.Generic;
