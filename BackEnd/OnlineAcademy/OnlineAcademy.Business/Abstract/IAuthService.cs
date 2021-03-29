@@ -1,5 +1,5 @@
 ﻿using Core.Utilities.Results.Abstract;
-using Core.Utilities.Security.JWT;
+using Core.Utilities.Security;
 using OnlineAcademy.Entities.Dtos;
 using OnlineAcademy.Entities.Dtos.Add;
 using OnlineAcademy.Entities.Dtos.Get;
@@ -14,10 +14,9 @@ namespace OnlineAcademy.Business.Abstract
     public interface IAuthService
     {
         Task<IResult> Register(UserAddDto userAddDto);
-        Task<IDataResult<UserLoginStep1ResponseDto>> LoginStep1(string email);
-        Task<IDataResult<UserGetDto>> LoginStep2(UserLoginDto userAddDto);
+        Task<IDataResult<UserGetDto>> Login(UserLoginDto userLoginDto);
         Task<byte[]> GetSalt(string email);
         Task<IResult> UserExist(string email);
-        Task<IDataResult<AccessToken>> CreateAccessToken(UserAddDto user); //???????
+        Task<IDataResult<AccessToken>> CreateAccessToken(string email); 
     }
 }

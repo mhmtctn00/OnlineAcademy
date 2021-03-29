@@ -10,5 +10,6 @@ namespace OnlineAcademy.DataAccess.Abstract
 {
     public interface IUserDal : IEntityRepository<User>
     {
+        Task<User> GetUserWithRolesByEmail(string email);
     }
 }

@@ -2,6 +2,8 @@
 using Autofac.Extras.DynamicProxy;
 using Castle.DynamicProxy;
 using Core.Utilities.Interceptors;
+using Core.Utilities.Security;
+using Core.Utilities.Security.JWT;
 using Microsoft.EntityFrameworkCore;
 using OnlineAcademy.Business.Abstract;
 using OnlineAcademy.Business.Concrete;
@@ -41,6 +43,9 @@ namespace OnlineAcademy.Business.DependencyResolvers.Autofac
 
             builder.RegisterType<EfUserDal>().As<IUserDal>();
             builder.RegisterType<UserManager>().As<IUserService>();
+
+            builder.RegisterType<AuthManager>().As<IAuthService>();
+            builder.RegisterType<JwtHelper>().As<ITokenHelper>();
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 

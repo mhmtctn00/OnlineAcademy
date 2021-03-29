@@ -14,7 +14,7 @@ namespace OnlineAcademy.Business.ValidationRules.FluentValidation
         {
             RuleFor(ul => ul.Email).NotEmpty();
             RuleFor(ul => ul.Email).MaximumLength(70);
-            RuleFor(ul => ul.PasswordHash).NotEmpty();
+            RuleFor(ul => ul.Password).NotEmpty();
         }
     }
 }

@@ -13,5 +13,15 @@ namespace OnlineAcademy.DataAccess.Concrete.EntityFramework.Repositories
 {
     public class EfUserDal : EfEntityRepositoryBase<User, EfOnlineAcademyContext>, IUserDal
     {
+        public async Task<User> GetUserWithRolesByEmail(string email)
+        {
+            using (EfOnlineAcademyContext context = new EfOnlineAcademyContext())
+            {
+                var user = await context.Set<User>().Where(u => u.Email == email)
+                    .Include(u => u.UserRoles).ThenInclude(ur => ur.Role)
+                    .FirstOrDefaultAsync(u => u.Email == email);
+                return user;
+            }
+        }
     }
 }

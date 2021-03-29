@@ -2,7 +2,8 @@
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.ComplexTypes;
 using Core.Utilities.Results.Concrete;
-using Core.Utilities.Security.JWT;
+using Core.Utilities.Security.Hashing;
+using Core.Utilities.Security;
 using OnlineAcademy.Business.Abstract;
 using OnlineAcademy.DataAccess.Abstract;
 using OnlineAcademy.Entities.Concrete;
@@ -39,25 +40,27 @@ namespace OnlineAcademy.Business.Concrete
             }
             return user.PasswordSalt;
         }
-        public async Task<IDataResult<UserLoginStep1ResponseDto>> LoginStep1(string email)
+
+        public async Task<IDataResult<UserGetDto>> Login(UserLoginDto userLoginDto)
         {
-            var user = await _userDal.GetAsync(u => u.Email == email);
+            var user = await _userDal.GetAsync(u => u.Email == userLoginDto.Email);
             if (user == null)
             {
-                return new ErrorDataResult<UserLoginStep1ResponseDto>("user_not_found");
+                return new ErrorDataResult<UserGetDto>("user_not_found");
             }
-            var token = Convert.ToBase64String(Encoding.UTF8.GetBytes(DateTime.Now.ToString()));
-            var salt = Convert.ToBase64String(user.PasswordSalt);
-            return new SuccessDataResult<UserLoginStep1ResponseDto>(new UserLoginStep1ResponseDto { Salt = salt, Token = token });
+            if (HashingHelper.VerifyPasswordHash(userLoginDto.Password, user.PasswordHash, user.PasswordSalt))
+                return new SuccessDataResult<UserGetDto>(_mapper.Map<User, UserGetDto>(user));
+            return new ErrorDataResult<UserGetDto>("user_password_or_email_wrong");
         }
-
-        public Task<IDataResult<UserGetDto>> LoginStep2(UserLoginDto userLoginDto)
+        public async Task<IDataResult<AccessToken>> CreateAccessToken(string email)
         {
-            throw new NotImplementedException();
-        }
-        public Task<IDataResult<AccessToken>> CreateAccessToken(UserAddDto user)
-        {
-            throw new NotImplementedException();
+            var user = await _userDal.GetUserWithRolesByEmail(email);
+            if (user == null)
+            {
+                return new ErrorDataResult<AccessToken>("user_not_found");
+            }
+            var accessToken = _tokenHelper.CreateToken(user, user.UserRoles.Select(ur => ur.Role).ToList());
+            return new SuccessDataResult<AccessToken>(accessToken);
         }
         public async Task<IResult> Register(UserAddDto userAddDto)
         {
@@ -66,7 +69,14 @@ namespace OnlineAcademy.Business.Concrete
             {
                 return new ErrorResult("user_already_exist");
             }
-            await _userDal.AddAsync(_mapper.Map<UserAddDto, User>(userAddDto));
+
+            byte[] passwordHash, passwordSalt;
+            HashingHelper.CreatePasswordHash(userAddDto.Password, out passwordHash, out passwordSalt);
+            var user = _mapper.Map<UserAddDto, User>(userAddDto);
+            user.PasswordHash = passwordHash;
+            user.PasswordSalt = passwordSalt;
+            
+            await _userDal.AddAsync(user);
             return new SuccessResult();
         }
 
@@ -77,7 +87,7 @@ namespace OnlineAcademy.Business.Concrete
             {
                 return new ErrorResult("user_not_found");
             }
-            return new SuccessResult();
+            return new SuccessResult("user_already_exist");
         }
     }
 }

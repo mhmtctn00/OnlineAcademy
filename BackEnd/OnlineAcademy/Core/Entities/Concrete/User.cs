@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Core.Entities.Concrete
 {
-    public class User : EntityBase, IEntity
+    public abstract class User : EntityBase, IEntity
     {
         public string Email { get; set; }
         public byte[] PasswordSalt { get; set; }

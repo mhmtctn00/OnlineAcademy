@@ -19,6 +19,205 @@ namespace OnlineAcademy.DataAccess.Migrations
                 .HasAnnotation("ProductVersion", "5.0.4")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Core.Entities.Concrete.Role", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
+                        .HasAnnotation("SqlServer:IdentitySeed", 1)
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CreatedByName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsModified")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ModifiedByName")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Roles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedByName = "Initial Create",
+                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 975, DateTimeKind.Local).AddTicks(5940),
+                            IsActive = true,
+                            IsDeleted = false,
+                            IsModified = false,
+                            Name = "Admin"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedByName = "Initial Create",
+                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 975, DateTimeKind.Local).AddTicks(5968),
+                            IsActive = true,
+                            IsDeleted = false,
+                            IsModified = false,
+                            Name = "Moderator"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedByName = "Initial Create",
+                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 975, DateTimeKind.Local).AddTicks(5972),
+                            IsActive = true,
+                            IsDeleted = false,
+                            IsModified = false,
+                            Name = "Teacher"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreatedByName = "Initial Create",
+                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 975, DateTimeKind.Local).AddTicks(5976),
+                            IsActive = true,
+                            IsDeleted = false,
+                            IsModified = false,
+                            Name = "Student"
+                        });
+                });
+
+            modelBuilder.Entity("Core.Entities.Concrete.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
+                        .HasAnnotation("SqlServer:IdentitySeed", 1)
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CreatedByName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(70)
+                        .HasColumnType("nvarchar(70)");
+
+                    b.Property<string>("Firstname")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsModified")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Lastname")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("ModifiedByName")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<byte[]>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<byte[]>("PasswordSalt")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("User");
+                });
+
+            modelBuilder.Entity("Core.Entities.Concrete.UserRole", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("UserRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = 1,
+                            RoleId = 3
+                        },
+                        new
+                        {
+                            UserId = 1,
+                            RoleId = 4
+                        },
+                        new
+                        {
+                            UserId = 2,
+                            RoleId = 3
+                        },
+                        new
+                        {
+                            UserId = 2,
+                            RoleId = 4
+                        },
+                        new
+                        {
+                            UserId = 3,
+                            RoleId = 4
+                        },
+                        new
+                        {
+                            UserId = 4,
+                            RoleId = 4
+                        });
+                });
+
             modelBuilder.Entity("OnlineAcademy.Entities.Concrete.Category", b =>
                 {
                     b.Property<int>("Id")
@@ -69,7 +268,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                         {
                             Id = 1,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 18, 16, 41, 21, 964, DateTimeKind.Local).AddTicks(8879),
+                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 950, DateTimeKind.Local).AddTicks(5243),
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
@@ -79,7 +278,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                         {
                             Id = 2,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 18, 16, 41, 21, 965, DateTimeKind.Local).AddTicks(3247),
+                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 950, DateTimeKind.Local).AddTicks(8766),
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
@@ -89,7 +288,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                         {
                             Id = 3,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 18, 16, 41, 21, 965, DateTimeKind.Local).AddTicks(3253),
+                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 950, DateTimeKind.Local).AddTicks(8772),
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
@@ -100,7 +299,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                         {
                             Id = 4,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 18, 16, 41, 21, 965, DateTimeKind.Local).AddTicks(3258),
+                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 950, DateTimeKind.Local).AddTicks(8776),
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
@@ -111,7 +310,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                         {
                             Id = 5,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 18, 16, 41, 21, 965, DateTimeKind.Local).AddTicks(3261),
+                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 950, DateTimeKind.Local).AddTicks(8780),
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
@@ -122,7 +321,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                         {
                             Id = 6,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 18, 16, 41, 21, 965, DateTimeKind.Local).AddTicks(3265),
+                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 950, DateTimeKind.Local).AddTicks(8783),
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
@@ -192,7 +391,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                         {
                             Id = 1,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 18, 16, 41, 21, 974, DateTimeKind.Local).AddTicks(9002),
+                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 958, DateTimeKind.Local).AddTicks(9295),
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
@@ -205,7 +404,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                         {
                             Id = 2,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 18, 16, 41, 21, 974, DateTimeKind.Local).AddTicks(9062),
+                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 958, DateTimeKind.Local).AddTicks(9347),
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
@@ -276,7 +475,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                         {
                             Id = 1,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 18, 16, 41, 21, 990, DateTimeKind.Local).AddTicks(3844),
+                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 967, DateTimeKind.Local).AddTicks(4500),
                             Description = "Bu kursta sıfırdan başlayarak ileri düzeyde React öğreneceksiniz.",
                             IsActive = true,
                             IsDeleted = false,
@@ -290,7 +489,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                         {
                             Id = 2,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 18, 16, 41, 21, 990, DateTimeKind.Local).AddTicks(3943),
+                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 967, DateTimeKind.Local).AddTicks(4558),
                             Description = "Bu kursta sıfırdan başlayarak ileri düzeyde JavaScript öğreneceksiniz.",
                             IsActive = true,
                             IsDeleted = false,
@@ -349,6 +548,38 @@ namespace OnlineAcademy.DataAccess.Migrations
                         });
                 });
 
+            modelBuilder.Entity("OnlineAcademy.Entities.Concrete.CourseInstructor", b =>
+                {
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CourseId", "UserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("CourseTeachers");
+
+                    b.HasData(
+                        new
+                        {
+                            CourseId = 1,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            CourseId = 1,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            CourseId = 2,
+                            UserId = 1
+                        });
+                });
+
             modelBuilder.Entity("OnlineAcademy.Entities.Concrete.CourseStudent", b =>
                 {
                     b.Property<int>("CourseId")
@@ -378,38 +609,6 @@ namespace OnlineAcademy.DataAccess.Migrations
                         {
                             CourseId = 2,
                             UserId = 3
-                        });
-                });
-
-            modelBuilder.Entity("OnlineAcademy.Entities.Concrete.CourseTeacher", b =>
-                {
-                    b.Property<int>("CourseId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CourseId", "UserId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("CourseTeachers");
-
-                    b.HasData(
-                        new
-                        {
-                            CourseId = 1,
-                            UserId = 1
-                        },
-                        new
-                        {
-                            CourseId = 1,
-                            UserId = 2
-                        },
-                        new
-                        {
-                            CourseId = 2,
-                            UserId = 1
                         });
                 });
 
@@ -473,7 +672,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                         {
                             Id = 1,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 18, 16, 41, 21, 998, DateTimeKind.Local).AddTicks(858),
+                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 973, DateTimeKind.Local).AddTicks(6886),
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
@@ -486,7 +685,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                         {
                             Id = 2,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 18, 16, 41, 21, 998, DateTimeKind.Local).AddTicks(918),
+                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 973, DateTimeKind.Local).AddTicks(6937),
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
@@ -499,7 +698,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                         {
                             Id = 3,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 18, 16, 41, 21, 998, DateTimeKind.Local).AddTicks(923),
+                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 973, DateTimeKind.Local).AddTicks(6941),
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
@@ -507,91 +706,6 @@ namespace OnlineAcademy.DataAccess.Migrations
                             SectionId = 2,
                             Title = "Section 2 Lesson 1",
                             Video = "https://www.youtube.com/watch?v=Law7wfdg_ls&ab_channel=DevEd"
-                        });
-                });
-
-            modelBuilder.Entity("OnlineAcademy.Entities.Concrete.Role", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
-                        .HasAnnotation("SqlServer:IdentitySeed", 1)
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("CreatedByName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsModified")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("ModifiedByName")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Roles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 18, 16, 41, 22, 0, DateTimeKind.Local).AddTicks(4163),
-                            IsActive = true,
-                            IsDeleted = false,
-                            IsModified = false,
-                            Name = "Admin"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 18, 16, 41, 22, 0, DateTimeKind.Local).AddTicks(4215),
-                            IsActive = true,
-                            IsDeleted = false,
-                            IsModified = false,
-                            Name = "Moderator"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 18, 16, 41, 22, 0, DateTimeKind.Local).AddTicks(4219),
-                            IsActive = true,
-                            IsDeleted = false,
-                            IsModified = false,
-                            Name = "Teacher"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 18, 16, 41, 22, 0, DateTimeKind.Local).AddTicks(4223),
-                            IsActive = true,
-                            IsDeleted = false,
-                            IsModified = false,
-                            Name = "Student"
                         });
                 });
 
@@ -648,7 +762,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                             Id = 1,
                             CorseId = 1,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 18, 16, 41, 22, 3, DateTimeKind.Local).AddTicks(6428),
+                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 981, DateTimeKind.Local).AddTicks(4961),
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
@@ -659,7 +773,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                             Id = 2,
                             CorseId = 1,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 18, 16, 41, 22, 3, DateTimeKind.Local).AddTicks(6528),
+                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 981, DateTimeKind.Local).AddTicks(5019),
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
@@ -670,7 +784,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                             Id = 3,
                             CorseId = 2,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 18, 16, 41, 22, 3, DateTimeKind.Local).AddTicks(6533),
+                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 981, DateTimeKind.Local).AddTicks(5023),
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
@@ -680,161 +794,88 @@ namespace OnlineAcademy.DataAccess.Migrations
 
             modelBuilder.Entity("OnlineAcademy.Entities.Concrete.User", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
-                        .HasAnnotation("SqlServer:IdentitySeed", 1)
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("CreatedByName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("Firstname")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsModified")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Lastname")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("ModifiedByName")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.HasKey("Id");
+                    b.HasBaseType("Core.Entities.Concrete.User");
 
                     b.ToTable("Users");
+
+                    b.HasDiscriminator().HasValue("User");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 18, 16, 41, 22, 6, DateTimeKind.Local).AddTicks(7852),
+                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 983, DateTimeKind.Local).AddTicks(7143),
                             Email = "mhmt.cetin00@gmail.com",
                             Firstname = "Mehmet",
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
                             Lastname = "Çetin",
-                            Password = "123456"
+                            PasswordHash = new byte[] { 1, 2, 3, 4 },
+                            PasswordSalt = new byte[] { 1, 2, 3, 4 }
                         },
                         new
                         {
                             Id = 2,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 18, 16, 41, 22, 6, DateTimeKind.Local).AddTicks(7911),
+                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 983, DateTimeKind.Local).AddTicks(7209),
                             Email = "mail@mail.com",
                             Firstname = "MailF",
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
                             Lastname = "MailL",
-                            Password = "123456"
+                            PasswordHash = new byte[] { 1, 2, 3, 4 },
+                            PasswordSalt = new byte[] { 1, 2, 3, 4 }
                         },
                         new
                         {
                             Id = 3,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 18, 16, 41, 22, 6, DateTimeKind.Local).AddTicks(7915),
+                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 983, DateTimeKind.Local).AddTicks(7216),
                             Email = "student1@gmail.com",
                             Firstname = "student1F",
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
                             Lastname = "student1L",
-                            Password = "123456"
+                            PasswordHash = new byte[] { 1, 2, 3, 4 },
+                            PasswordSalt = new byte[] { 1, 2, 3, 4 }
                         },
                         new
                         {
                             Id = 4,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 18, 16, 41, 22, 6, DateTimeKind.Local).AddTicks(7919),
+                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 983, DateTimeKind.Local).AddTicks(7304),
                             Email = "student2@mail.com",
                             Firstname = "student2F",
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
                             Lastname = "student2L",
-                            Password = "123456"
+                            PasswordHash = new byte[] { 1, 2, 3, 4 },
+                            PasswordSalt = new byte[] { 1, 2, 3, 4 }
                         });
                 });
 
-            modelBuilder.Entity("OnlineAcademy.Entities.Concrete.UserRole", b =>
+            modelBuilder.Entity("Core.Entities.Concrete.UserRole", b =>
                 {
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
+                    b.HasOne("Core.Entities.Concrete.Role", "Role")
+                        .WithMany("UserRoles")
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Property<int>("RoleId")
-                        .HasColumnType("int");
+                    b.HasOne("Core.Entities.Concrete.User", "User")
+                        .WithMany("UserRoles")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasKey("UserId", "RoleId");
+                    b.Navigation("Role");
 
-                    b.HasIndex("RoleId");
-
-                    b.ToTable("UserRoles");
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = 1,
-                            RoleId = 3
-                        },
-                        new
-                        {
-                            UserId = 1,
-                            RoleId = 4
-                        },
-                        new
-                        {
-                            UserId = 2,
-                            RoleId = 3
-                        },
-                        new
-                        {
-                            UserId = 2,
-                            RoleId = 4
-                        },
-                        new
-                        {
-                            UserId = 3,
-                            RoleId = 4
-                        },
-                        new
-                        {
-                            UserId = 4,
-                            RoleId = 4
-                        });
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("OnlineAcademy.Entities.Concrete.Comment", b =>
@@ -875,6 +916,25 @@ namespace OnlineAcademy.DataAccess.Migrations
                     b.Navigation("Course");
                 });
 
+            modelBuilder.Entity("OnlineAcademy.Entities.Concrete.CourseInstructor", b =>
+                {
+                    b.HasOne("OnlineAcademy.Entities.Concrete.Course", "Course")
+                        .WithMany("CourseInstructors")
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("OnlineAcademy.Entities.Concrete.User", "User")
+                        .WithMany("CourseInstructors")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Course");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("OnlineAcademy.Entities.Concrete.CourseStudent", b =>
                 {
                     b.HasOne("OnlineAcademy.Entities.Concrete.Course", "Course")
@@ -885,25 +945,6 @@ namespace OnlineAcademy.DataAccess.Migrations
 
                     b.HasOne("OnlineAcademy.Entities.Concrete.User", "User")
                         .WithMany("CourseStudents")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Course");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("OnlineAcademy.Entities.Concrete.CourseTeacher", b =>
-                {
-                    b.HasOne("OnlineAcademy.Entities.Concrete.Course", "Course")
-                        .WithMany("CourseTeachers")
-                        .HasForeignKey("CourseId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("OnlineAcademy.Entities.Concrete.User", "User")
-                        .WithMany("CourseTeachers")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -935,23 +976,14 @@ namespace OnlineAcademy.DataAccess.Migrations
                     b.Navigation("Course");
                 });
 
-            modelBuilder.Entity("OnlineAcademy.Entities.Concrete.UserRole", b =>
+            modelBuilder.Entity("Core.Entities.Concrete.Role", b =>
                 {
-                    b.HasOne("OnlineAcademy.Entities.Concrete.Role", "Role")
-                        .WithMany("UserRoles")
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("UserRoles");
+                });
 
-                    b.HasOne("OnlineAcademy.Entities.Concrete.User", "User")
-                        .WithMany("UserRoles")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Role");
-
-                    b.Navigation("User");
+            modelBuilder.Entity("Core.Entities.Concrete.User", b =>
+                {
+                    b.Navigation("UserRoles");
                 });
 
             modelBuilder.Entity("OnlineAcademy.Entities.Concrete.Category", b =>
@@ -963,9 +995,9 @@ namespace OnlineAcademy.DataAccess.Migrations
                 {
                     b.Navigation("CourseCategories");
 
-                    b.Navigation("CourseStudents");
+                    b.Navigation("CourseInstructors");
 
-                    b.Navigation("CourseTeachers");
+                    b.Navigation("CourseStudents");
 
                     b.Navigation("Sections");
                 });
@@ -973,11 +1005,6 @@ namespace OnlineAcademy.DataAccess.Migrations
             modelBuilder.Entity("OnlineAcademy.Entities.Concrete.Lesson", b =>
                 {
                     b.Navigation("Comments");
-                });
-
-            modelBuilder.Entity("OnlineAcademy.Entities.Concrete.Role", b =>
-                {
-                    b.Navigation("UserRoles");
                 });
 
             modelBuilder.Entity("OnlineAcademy.Entities.Concrete.Section", b =>
@@ -989,11 +1016,9 @@ namespace OnlineAcademy.DataAccess.Migrations
                 {
                     b.Navigation("Comments");
 
+                    b.Navigation("CourseInstructors");
+
                     b.Navigation("CourseStudents");
-
-                    b.Navigation("CourseTeachers");
-
-                    b.Navigation("UserRoles");
                 });
 #pragma warning restore 612, 618
         }
