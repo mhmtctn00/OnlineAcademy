@@ -12,9 +12,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
+using Core.Aspects.Autofac.Logging;
+using Core.Aspects.Autofac.Exception;
 
 namespace OnlineAcademy.Business.Concrete
 {
+    [ExceptionLogAspect]
+    [LogAspect(typeof(FileLogger))]
     public class CategoryManager : ICategoryService
     {
         private readonly ICategoryDal _categoryDal;

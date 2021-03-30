@@ -15,9 +15,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
+using Core.Aspects.Autofac.Logging;
+using Core.Aspects.Autofac.Exception;
 
 namespace OnlineAcademy.Business.Concrete
 {
+    [ExceptionLogAspect]
+    [LogAspect(typeof(FileLogger))]
     public class AuthManager : IAuthService
     {
         private readonly IUserDal _userDal;
@@ -75,7 +80,7 @@ namespace OnlineAcademy.Business.Concrete
             var user = _mapper.Map<UserAddDto, User>(userAddDto);
             user.PasswordHash = passwordHash;
             user.PasswordSalt = passwordSalt;
-            
+
             await _userDal.AddAsync(user);
             return new SuccessResult();
         }

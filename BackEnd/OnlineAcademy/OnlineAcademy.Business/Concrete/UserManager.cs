@@ -1,4 +1,7 @@
 ﻿using AutoMapper;
+using Core.Aspects.Autofac.Exception;
+using Core.Aspects.Autofac.Logging;
+using Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 using Core.Utilities.Results.Abstract;
 using Core.Utilities.Results.ComplexTypes;
 using Core.Utilities.Results.Concrete;
@@ -18,6 +21,8 @@ using System.Threading.Tasks;
 
 namespace OnlineAcademy.Business.Concrete
 {
+    [ExceptionLogAspect]
+    [LogAspect(typeof(FileLogger))]
     public class UserManager : IUserService
     {
         private readonly IUserDal _userDal;

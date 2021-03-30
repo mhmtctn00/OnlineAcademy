@@ -12,9 +12,14 @@ using OnlineAcademy.DataAccess.Abstract;
 using AutoMapper;
 using OnlineAcademy.Entities.Concrete;
 using Core.Utilities.Results.Concrete;
+using Core.Aspects.Autofac.Exception;
+using Core.Aspects.Autofac.Logging;
+using Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 
 namespace OnlineAcademy.Business.Concrete
 {
+    [ExceptionLogAspect]
+    [LogAspect(typeof(FileLogger))]
     public class CommentManager : ICommentService
     {
         private readonly ICommentDal _commentDal;

@@ -19,6 +19,8 @@ using Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 
 namespace OnlineAcademy.Business.Concrete
 {
+    [ExceptionLogAspect]
+    [LogAspect(typeof(FileLogger))]
     public class CourseManager : ICourseService
     {
         private readonly ICourseDal _courseDal;
@@ -30,7 +32,6 @@ namespace OnlineAcademy.Business.Concrete
             _mapper = mapper;
         }
 
-        [ExceptionLogAspect]
         [FluentValidationAspect(typeof(CourseAddDtoValidator))]
         public async Task<IResult> AddAsync(CourseAddDto courseDto)
         {
@@ -47,7 +48,6 @@ namespace OnlineAcademy.Business.Concrete
             await _courseDal.UpdateAsync(course);
             return new SuccessResult("Course silindi");
         }
-        [LogAspect(typeof(FileLogger))]
         public async Task<IDataResult<IEnumerable<CourseWithInstructorsGetDto>>> GetAllAsync()
         {
             var data = await _courseDal.GetCoursesWithIncludesAsync();

@@ -10,7 +10,7 @@ namespace OnlineAcademy.Entities.Concrete
 {
     public class User : Core.Entities.Concrete.User, IEntity
     {
-
+        public string Address { get; set; }
         public virtual ICollection<CourseStudent> CourseStudents { get; set; }
         public virtual ICollection<CourseInstructor> CourseInstructors { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
