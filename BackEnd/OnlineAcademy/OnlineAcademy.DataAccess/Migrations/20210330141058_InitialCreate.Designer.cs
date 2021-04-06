@@ -10,8 +10,8 @@ using OnlineAcademy.DataAccess.Concrete.EntityFramework.Contexts;
 namespace OnlineAcademy.DataAccess.Migrations
 {
     [DbContext(typeof(EfOnlineAcademyContext))]
-    [Migration("20210329193749_Initial_Create")]
-    partial class Initial_Create
+    [Migration("20210330141058_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -68,7 +68,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                         {
                             Id = 1,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 975, DateTimeKind.Local).AddTicks(5940),
+                            CreatedDate = new DateTime(2021, 3, 30, 17, 10, 57, 612, DateTimeKind.Local).AddTicks(6063),
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
@@ -78,7 +78,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                         {
                             Id = 2,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 975, DateTimeKind.Local).AddTicks(5968),
+                            CreatedDate = new DateTime(2021, 3, 30, 17, 10, 57, 612, DateTimeKind.Local).AddTicks(6107),
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
@@ -88,7 +88,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                         {
                             Id = 3,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 975, DateTimeKind.Local).AddTicks(5972),
+                            CreatedDate = new DateTime(2021, 3, 30, 17, 10, 57, 612, DateTimeKind.Local).AddTicks(6112),
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
@@ -98,7 +98,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                         {
                             Id = 4,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 975, DateTimeKind.Local).AddTicks(5976),
+                            CreatedDate = new DateTime(2021, 3, 30, 17, 10, 57, 612, DateTimeKind.Local).AddTicks(6116),
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
@@ -270,7 +270,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                         {
                             Id = 1,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 950, DateTimeKind.Local).AddTicks(5243),
+                            CreatedDate = new DateTime(2021, 3, 30, 17, 10, 57, 579, DateTimeKind.Local).AddTicks(1417),
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
@@ -280,7 +280,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                         {
                             Id = 2,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 950, DateTimeKind.Local).AddTicks(8766),
+                            CreatedDate = new DateTime(2021, 3, 30, 17, 10, 57, 579, DateTimeKind.Local).AddTicks(5701),
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
@@ -290,7 +290,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                         {
                             Id = 3,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 950, DateTimeKind.Local).AddTicks(8772),
+                            CreatedDate = new DateTime(2021, 3, 30, 17, 10, 57, 579, DateTimeKind.Local).AddTicks(5707),
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
@@ -301,7 +301,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                         {
                             Id = 4,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 950, DateTimeKind.Local).AddTicks(8776),
+                            CreatedDate = new DateTime(2021, 3, 30, 17, 10, 57, 579, DateTimeKind.Local).AddTicks(5711),
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
@@ -312,7 +312,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                         {
                             Id = 5,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 950, DateTimeKind.Local).AddTicks(8780),
+                            CreatedDate = new DateTime(2021, 3, 30, 17, 10, 57, 579, DateTimeKind.Local).AddTicks(5714),
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
@@ -323,7 +323,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                         {
                             Id = 6,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 950, DateTimeKind.Local).AddTicks(8783),
+                            CreatedDate = new DateTime(2021, 3, 30, 17, 10, 57, 579, DateTimeKind.Local).AddTicks(5718),
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
@@ -393,7 +393,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                         {
                             Id = 1,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 958, DateTimeKind.Local).AddTicks(9295),
+                            CreatedDate = new DateTime(2021, 3, 30, 17, 10, 57, 590, DateTimeKind.Local).AddTicks(1018),
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
@@ -406,7 +406,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                         {
                             Id = 2,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 958, DateTimeKind.Local).AddTicks(9347),
+                            CreatedDate = new DateTime(2021, 3, 30, 17, 10, 57, 590, DateTimeKind.Local).AddTicks(1086),
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
@@ -477,7 +477,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                         {
                             Id = 1,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 967, DateTimeKind.Local).AddTicks(4500),
+                            CreatedDate = new DateTime(2021, 3, 30, 17, 10, 57, 600, DateTimeKind.Local).AddTicks(6394),
                             Description = "Bu kursta sıfırdan başlayarak ileri düzeyde React öğreneceksiniz.",
                             IsActive = true,
                             IsDeleted = false,
@@ -491,7 +491,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                         {
                             Id = 2,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 967, DateTimeKind.Local).AddTicks(4558),
+                            CreatedDate = new DateTime(2021, 3, 30, 17, 10, 57, 600, DateTimeKind.Local).AddTicks(6456),
                             Description = "Bu kursta sıfırdan başlayarak ileri düzeyde JavaScript öğreneceksiniz.",
                             IsActive = true,
                             IsDeleted = false,
@@ -674,7 +674,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                         {
                             Id = 1,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 973, DateTimeKind.Local).AddTicks(6886),
+                            CreatedDate = new DateTime(2021, 3, 30, 17, 10, 57, 609, DateTimeKind.Local).AddTicks(9345),
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
@@ -687,7 +687,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                         {
                             Id = 2,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 973, DateTimeKind.Local).AddTicks(6937),
+                            CreatedDate = new DateTime(2021, 3, 30, 17, 10, 57, 609, DateTimeKind.Local).AddTicks(9415),
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
@@ -700,7 +700,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                         {
                             Id = 3,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 973, DateTimeKind.Local).AddTicks(6941),
+                            CreatedDate = new DateTime(2021, 3, 30, 17, 10, 57, 609, DateTimeKind.Local).AddTicks(9420),
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
@@ -764,7 +764,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                             Id = 1,
                             CorseId = 1,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 981, DateTimeKind.Local).AddTicks(4961),
+                            CreatedDate = new DateTime(2021, 3, 30, 17, 10, 57, 619, DateTimeKind.Local).AddTicks(7659),
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
@@ -775,7 +775,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                             Id = 2,
                             CorseId = 1,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 981, DateTimeKind.Local).AddTicks(5019),
+                            CreatedDate = new DateTime(2021, 3, 30, 17, 10, 57, 619, DateTimeKind.Local).AddTicks(7780),
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
@@ -786,7 +786,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                             Id = 3,
                             CorseId = 2,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 981, DateTimeKind.Local).AddTicks(5023),
+                            CreatedDate = new DateTime(2021, 3, 30, 17, 10, 57, 619, DateTimeKind.Local).AddTicks(7785),
                             IsActive = true,
                             IsDeleted = false,
                             IsModified = false,
@@ -798,6 +798,11 @@ namespace OnlineAcademy.DataAccess.Migrations
                 {
                     b.HasBaseType("Core.Entities.Concrete.User");
 
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
                     b.ToTable("Users");
 
                     b.HasDiscriminator().HasValue("User");
@@ -807,7 +812,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                         {
                             Id = 1,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 983, DateTimeKind.Local).AddTicks(7143),
+                            CreatedDate = new DateTime(2021, 3, 30, 17, 10, 57, 622, DateTimeKind.Local).AddTicks(6191),
                             Email = "mhmt.cetin00@gmail.com",
                             Firstname = "Mehmet",
                             IsActive = true,
@@ -815,13 +820,14 @@ namespace OnlineAcademy.DataAccess.Migrations
                             IsModified = false,
                             Lastname = "Çetin",
                             PasswordHash = new byte[] { 1, 2, 3, 4 },
-                            PasswordSalt = new byte[] { 1, 2, 3, 4 }
+                            PasswordSalt = new byte[] { 1, 2, 3, 4 },
+                            Address = "user1"
                         },
                         new
                         {
                             Id = 2,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 983, DateTimeKind.Local).AddTicks(7209),
+                            CreatedDate = new DateTime(2021, 3, 30, 17, 10, 57, 622, DateTimeKind.Local).AddTicks(6869),
                             Email = "mail@mail.com",
                             Firstname = "MailF",
                             IsActive = true,
@@ -829,13 +835,14 @@ namespace OnlineAcademy.DataAccess.Migrations
                             IsModified = false,
                             Lastname = "MailL",
                             PasswordHash = new byte[] { 1, 2, 3, 4 },
-                            PasswordSalt = new byte[] { 1, 2, 3, 4 }
+                            PasswordSalt = new byte[] { 1, 2, 3, 4 },
+                            Address = "user2"
                         },
                         new
                         {
                             Id = 3,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 983, DateTimeKind.Local).AddTicks(7216),
+                            CreatedDate = new DateTime(2021, 3, 30, 17, 10, 57, 622, DateTimeKind.Local).AddTicks(6877),
                             Email = "student1@gmail.com",
                             Firstname = "student1F",
                             IsActive = true,
@@ -843,13 +850,14 @@ namespace OnlineAcademy.DataAccess.Migrations
                             IsModified = false,
                             Lastname = "student1L",
                             PasswordHash = new byte[] { 1, 2, 3, 4 },
-                            PasswordSalt = new byte[] { 1, 2, 3, 4 }
+                            PasswordSalt = new byte[] { 1, 2, 3, 4 },
+                            Address = "user3"
                         },
                         new
                         {
                             Id = 4,
                             CreatedByName = "Initial Create",
-                            CreatedDate = new DateTime(2021, 3, 29, 22, 37, 48, 983, DateTimeKind.Local).AddTicks(7304),
+                            CreatedDate = new DateTime(2021, 3, 30, 17, 10, 57, 622, DateTimeKind.Local).AddTicks(6883),
                             Email = "student2@mail.com",
                             Firstname = "student2F",
                             IsActive = true,
@@ -857,7 +865,8 @@ namespace OnlineAcademy.DataAccess.Migrations
                             IsModified = false,
                             Lastname = "student2L",
                             PasswordHash = new byte[] { 1, 2, 3, 4 },
-                            PasswordSalt = new byte[] { 1, 2, 3, 4 }
+                            PasswordSalt = new byte[] { 1, 2, 3, 4 },
+                            Address = "user4"
                         });
                 });
 

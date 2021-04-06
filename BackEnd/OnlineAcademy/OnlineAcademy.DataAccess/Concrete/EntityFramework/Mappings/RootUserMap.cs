@@ -14,6 +14,7 @@ namespace OnlineAcademy.DataAccess.Concrete.EntityFramework.Mappings
         public void Configure(EntityTypeBuilder<User> builder)
         {
             builder.ToTable("Users");
+            
 
             builder.Property(u => u.Email).IsRequired().HasMaxLength(70);
             builder.Property(u => u.PasswordSalt).IsRequired();

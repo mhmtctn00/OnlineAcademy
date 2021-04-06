@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace OnlineAcademy.DataAccess.Migrations
 {
-    public partial class Initial_Create : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -84,6 +84,7 @@ namespace OnlineAcademy.DataAccess.Migrations
                     Firstname = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Lastname = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Discriminator = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
@@ -289,12 +290,12 @@ namespace OnlineAcademy.DataAccess.Migrations
                 columns: new[] { "Id", "CreatedByName", "CreatedDate", "IsActive", "IsDeleted", "IsModified", "ModifiedByName", "ModifiedDate", "Name", "ParentId" },
                 values: new object[,]
                 {
-                    { 1, "Initial Create", new DateTime(2021, 3, 29, 22, 37, 48, 950, DateTimeKind.Local).AddTicks(5243), true, false, false, null, null, "Yazılım Geliştirme", null },
-                    { 2, "Initial Create", new DateTime(2021, 3, 29, 22, 37, 48, 950, DateTimeKind.Local).AddTicks(8766), true, false, false, null, null, "İşletme", null },
-                    { 3, "Initial Create", new DateTime(2021, 3, 29, 22, 37, 48, 950, DateTimeKind.Local).AddTicks(8772), true, false, false, null, null, "Web Geliştirme", 1 },
-                    { 4, "Initial Create", new DateTime(2021, 3, 29, 22, 37, 48, 950, DateTimeKind.Local).AddTicks(8776), true, false, false, null, null, "Veri Bilimi", 1 },
-                    { 5, "Initial Create", new DateTime(2021, 3, 29, 22, 37, 48, 950, DateTimeKind.Local).AddTicks(8780), true, false, false, null, null, "JavaScript", 3 },
-                    { 6, "Initial Create", new DateTime(2021, 3, 29, 22, 37, 48, 950, DateTimeKind.Local).AddTicks(8783), true, false, false, null, null, "React", 3 }
+                    { 1, "Initial Create", new DateTime(2021, 3, 30, 17, 10, 57, 579, DateTimeKind.Local).AddTicks(1417), true, false, false, null, null, "Yazılım Geliştirme", null },
+                    { 2, "Initial Create", new DateTime(2021, 3, 30, 17, 10, 57, 579, DateTimeKind.Local).AddTicks(5701), true, false, false, null, null, "İşletme", null },
+                    { 3, "Initial Create", new DateTime(2021, 3, 30, 17, 10, 57, 579, DateTimeKind.Local).AddTicks(5707), true, false, false, null, null, "Web Geliştirme", 1 },
+                    { 4, "Initial Create", new DateTime(2021, 3, 30, 17, 10, 57, 579, DateTimeKind.Local).AddTicks(5711), true, false, false, null, null, "Veri Bilimi", 1 },
+                    { 5, "Initial Create", new DateTime(2021, 3, 30, 17, 10, 57, 579, DateTimeKind.Local).AddTicks(5714), true, false, false, null, null, "JavaScript", 3 },
+                    { 6, "Initial Create", new DateTime(2021, 3, 30, 17, 10, 57, 579, DateTimeKind.Local).AddTicks(5718), true, false, false, null, null, "React", 3 }
                 });
 
             migrationBuilder.InsertData(
@@ -302,8 +303,8 @@ namespace OnlineAcademy.DataAccess.Migrations
                 columns: new[] { "Id", "CreatedByName", "CreatedDate", "Description", "IsActive", "IsDeleted", "IsModified", "ModifiedByName", "ModifiedDate", "Price", "Rate", "RateCount", "Title" },
                 values: new object[,]
                 {
-                    { 1, "Initial Create", new DateTime(2021, 3, 29, 22, 37, 48, 967, DateTimeKind.Local).AddTicks(4500), "Bu kursta sıfırdan başlayarak ileri düzeyde React öğreneceksiniz.", true, false, false, null, null, 0m, 0m, 0, "Sıfırdan İleri Seviye React Kursu!" },
-                    { 2, "Initial Create", new DateTime(2021, 3, 29, 22, 37, 48, 967, DateTimeKind.Local).AddTicks(4558), "Bu kursta sıfırdan başlayarak ileri düzeyde JavaScript öğreneceksiniz.", true, false, false, null, null, 0m, 0m, 0, "Sıfırdan İleri Seviye JavaScript Kursu!" }
+                    { 1, "Initial Create", new DateTime(2021, 3, 30, 17, 10, 57, 600, DateTimeKind.Local).AddTicks(6394), "Bu kursta sıfırdan başlayarak ileri düzeyde React öğreneceksiniz.", true, false, false, null, null, 0m, 0m, 0, "Sıfırdan İleri Seviye React Kursu!" },
+                    { 2, "Initial Create", new DateTime(2021, 3, 30, 17, 10, 57, 600, DateTimeKind.Local).AddTicks(6456), "Bu kursta sıfırdan başlayarak ileri düzeyde JavaScript öğreneceksiniz.", true, false, false, null, null, 0m, 0m, 0, "Sıfırdan İleri Seviye JavaScript Kursu!" }
                 });
 
             migrationBuilder.InsertData(
@@ -311,21 +312,21 @@ namespace OnlineAcademy.DataAccess.Migrations
                 columns: new[] { "Id", "CreatedByName", "CreatedDate", "IsActive", "IsDeleted", "IsModified", "ModifiedByName", "ModifiedDate", "Name" },
                 values: new object[,]
                 {
-                    { 1, "Initial Create", new DateTime(2021, 3, 29, 22, 37, 48, 975, DateTimeKind.Local).AddTicks(5940), true, false, false, null, null, "Admin" },
-                    { 2, "Initial Create", new DateTime(2021, 3, 29, 22, 37, 48, 975, DateTimeKind.Local).AddTicks(5968), true, false, false, null, null, "Moderator" },
-                    { 3, "Initial Create", new DateTime(2021, 3, 29, 22, 37, 48, 975, DateTimeKind.Local).AddTicks(5972), true, false, false, null, null, "Teacher" },
-                    { 4, "Initial Create", new DateTime(2021, 3, 29, 22, 37, 48, 975, DateTimeKind.Local).AddTicks(5976), true, false, false, null, null, "Student" }
+                    { 1, "Initial Create", new DateTime(2021, 3, 30, 17, 10, 57, 612, DateTimeKind.Local).AddTicks(6063), true, false, false, null, null, "Admin" },
+                    { 2, "Initial Create", new DateTime(2021, 3, 30, 17, 10, 57, 612, DateTimeKind.Local).AddTicks(6107), true, false, false, null, null, "Moderator" },
+                    { 3, "Initial Create", new DateTime(2021, 3, 30, 17, 10, 57, 612, DateTimeKind.Local).AddTicks(6112), true, false, false, null, null, "Teacher" },
+                    { 4, "Initial Create", new DateTime(2021, 3, 30, 17, 10, 57, 612, DateTimeKind.Local).AddTicks(6116), true, false, false, null, null, "Student" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Users",
-                columns: new[] { "Id", "CreatedByName", "CreatedDate", "Discriminator", "Email", "Firstname", "IsActive", "IsDeleted", "IsModified", "Lastname", "ModifiedByName", "ModifiedDate", "PasswordHash", "PasswordSalt" },
+                columns: new[] { "Id", "Address", "CreatedByName", "CreatedDate", "Discriminator", "Email", "Firstname", "IsActive", "IsDeleted", "IsModified", "Lastname", "ModifiedByName", "ModifiedDate", "PasswordHash", "PasswordSalt" },
                 values: new object[,]
                 {
-                    { 1, "Initial Create", new DateTime(2021, 3, 29, 22, 37, 48, 983, DateTimeKind.Local).AddTicks(7143), "User", "mhmt.cetin00@gmail.com", "Mehmet", true, false, false, "Çetin", null, null, new byte[] { 1, 2, 3, 4 }, new byte[] { 1, 2, 3, 4 } },
-                    { 2, "Initial Create", new DateTime(2021, 3, 29, 22, 37, 48, 983, DateTimeKind.Local).AddTicks(7209), "User", "mail@mail.com", "MailF", true, false, false, "MailL", null, null, new byte[] { 1, 2, 3, 4 }, new byte[] { 1, 2, 3, 4 } },
-                    { 3, "Initial Create", new DateTime(2021, 3, 29, 22, 37, 48, 983, DateTimeKind.Local).AddTicks(7216), "User", "student1@gmail.com", "student1F", true, false, false, "student1L", null, null, new byte[] { 1, 2, 3, 4 }, new byte[] { 1, 2, 3, 4 } },
-                    { 4, "Initial Create", new DateTime(2021, 3, 29, 22, 37, 48, 983, DateTimeKind.Local).AddTicks(7304), "User", "student2@mail.com", "student2F", true, false, false, "student2L", null, null, new byte[] { 1, 2, 3, 4 }, new byte[] { 1, 2, 3, 4 } }
+                    { 1, "user1", "Initial Create", new DateTime(2021, 3, 30, 17, 10, 57, 622, DateTimeKind.Local).AddTicks(6191), "User", "mhmt.cetin00@gmail.com", "Mehmet", true, false, false, "Çetin", null, null, new byte[] { 1, 2, 3, 4 }, new byte[] { 1, 2, 3, 4 } },
+                    { 2, "user2", "Initial Create", new DateTime(2021, 3, 30, 17, 10, 57, 622, DateTimeKind.Local).AddTicks(6869), "User", "mail@mail.com", "MailF", true, false, false, "MailL", null, null, new byte[] { 1, 2, 3, 4 }, new byte[] { 1, 2, 3, 4 } },
+                    { 3, "user3", "Initial Create", new DateTime(2021, 3, 30, 17, 10, 57, 622, DateTimeKind.Local).AddTicks(6877), "User", "student1@gmail.com", "student1F", true, false, false, "student1L", null, null, new byte[] { 1, 2, 3, 4 }, new byte[] { 1, 2, 3, 4 } },
+                    { 4, "user4", "Initial Create", new DateTime(2021, 3, 30, 17, 10, 57, 622, DateTimeKind.Local).AddTicks(6883), "User", "student2@mail.com", "student2F", true, false, false, "student2L", null, null, new byte[] { 1, 2, 3, 4 }, new byte[] { 1, 2, 3, 4 } }
                 });
 
             migrationBuilder.InsertData(
@@ -366,9 +367,9 @@ namespace OnlineAcademy.DataAccess.Migrations
                 columns: new[] { "Id", "CorseId", "CreatedByName", "CreatedDate", "IsActive", "IsDeleted", "IsModified", "ModifiedByName", "ModifiedDate", "Title" },
                 values: new object[,]
                 {
-                    { 2, 1, "Initial Create", new DateTime(2021, 3, 29, 22, 37, 48, 981, DateTimeKind.Local).AddTicks(5019), true, false, false, null, null, "Course 1 Section 2" },
-                    { 1, 1, "Initial Create", new DateTime(2021, 3, 29, 22, 37, 48, 981, DateTimeKind.Local).AddTicks(4961), true, false, false, null, null, "Course 1 Section 1" },
-                    { 3, 2, "Initial Create", new DateTime(2021, 3, 29, 22, 37, 48, 981, DateTimeKind.Local).AddTicks(5023), true, false, false, null, null, "Course 2 Section 1" }
+                    { 2, 1, "Initial Create", new DateTime(2021, 3, 30, 17, 10, 57, 619, DateTimeKind.Local).AddTicks(7780), true, false, false, null, null, "Course 1 Section 2" },
+                    { 1, 1, "Initial Create", new DateTime(2021, 3, 30, 17, 10, 57, 619, DateTimeKind.Local).AddTicks(7659), true, false, false, null, null, "Course 1 Section 1" },
+                    { 3, 2, "Initial Create", new DateTime(2021, 3, 30, 17, 10, 57, 619, DateTimeKind.Local).AddTicks(7785), true, false, false, null, null, "Course 2 Section 1" }
                 });
 
             migrationBuilder.InsertData(
@@ -387,27 +388,27 @@ namespace OnlineAcademy.DataAccess.Migrations
             migrationBuilder.InsertData(
                 table: "Lessons",
                 columns: new[] { "Id", "CreatedByName", "CreatedDate", "IsActive", "IsDeleted", "IsModified", "Length", "ModifiedByName", "ModifiedDate", "SectionId", "Title", "Video" },
-                values: new object[] { 1, "Initial Create", new DateTime(2021, 3, 29, 22, 37, 48, 973, DateTimeKind.Local).AddTicks(6886), true, false, false, 15, null, null, 1, "Section 1 Lesson 1", "https://www.youtube.com/watch?v=w7ejDZ8SWv8&ab_channel=TraversyMedia" });
+                values: new object[] { 1, "Initial Create", new DateTime(2021, 3, 30, 17, 10, 57, 609, DateTimeKind.Local).AddTicks(9345), true, false, false, 15, null, null, 1, "Section 1 Lesson 1", "https://www.youtube.com/watch?v=w7ejDZ8SWv8&ab_channel=TraversyMedia" });
 
             migrationBuilder.InsertData(
                 table: "Lessons",
                 columns: new[] { "Id", "CreatedByName", "CreatedDate", "IsActive", "IsDeleted", "IsModified", "Length", "ModifiedByName", "ModifiedDate", "SectionId", "Title", "Video" },
-                values: new object[] { 2, "Initial Create", new DateTime(2021, 3, 29, 22, 37, 48, 973, DateTimeKind.Local).AddTicks(6937), true, false, false, 23, null, null, 1, "Section 1 Lesson 2", "https://www.youtube.com/watch?v=dGcsHMXbSOA&ab_channel=DevEd" });
+                values: new object[] { 2, "Initial Create", new DateTime(2021, 3, 30, 17, 10, 57, 609, DateTimeKind.Local).AddTicks(9415), true, false, false, 23, null, null, 1, "Section 1 Lesson 2", "https://www.youtube.com/watch?v=dGcsHMXbSOA&ab_channel=DevEd" });
 
             migrationBuilder.InsertData(
                 table: "Lessons",
                 columns: new[] { "Id", "CreatedByName", "CreatedDate", "IsActive", "IsDeleted", "IsModified", "Length", "ModifiedByName", "ModifiedDate", "SectionId", "Title", "Video" },
-                values: new object[] { 3, "Initial Create", new DateTime(2021, 3, 29, 22, 37, 48, 973, DateTimeKind.Local).AddTicks(6941), true, false, false, 23, null, null, 2, "Section 2 Lesson 1", "https://www.youtube.com/watch?v=Law7wfdg_ls&ab_channel=DevEd" });
+                values: new object[] { 3, "Initial Create", new DateTime(2021, 3, 30, 17, 10, 57, 609, DateTimeKind.Local).AddTicks(9420), true, false, false, 23, null, null, 2, "Section 2 Lesson 1", "https://www.youtube.com/watch?v=Law7wfdg_ls&ab_channel=DevEd" });
 
             migrationBuilder.InsertData(
                 table: "Comments",
                 columns: new[] { "Id", "CreatedByName", "CreatedDate", "IsActive", "IsDeleted", "IsModified", "LessonId", "Message", "ModifiedByName", "ModifiedDate", "Title", "UserId" },
-                values: new object[] { 1, "Initial Create", new DateTime(2021, 3, 29, 22, 37, 48, 958, DateTimeKind.Local).AddTicks(9295), true, false, false, 1, "Eğitim çok başarılı.", null, null, "Teşekkür", 3 });
+                values: new object[] { 1, "Initial Create", new DateTime(2021, 3, 30, 17, 10, 57, 590, DateTimeKind.Local).AddTicks(1018), true, false, false, 1, "Eğitim çok başarılı.", null, null, "Teşekkür", 3 });
 
             migrationBuilder.InsertData(
                 table: "Comments",
                 columns: new[] { "Id", "CreatedByName", "CreatedDate", "IsActive", "IsDeleted", "IsModified", "LessonId", "Message", "ModifiedByName", "ModifiedDate", "Title", "UserId" },
-                values: new object[] { 2, "Initial Create", new DateTime(2021, 3, 29, 22, 37, 48, 958, DateTimeKind.Local).AddTicks(9347), true, false, false, 1, "Tebrikler. Eğitim çok başarılı.", null, null, "Tebrik", 4 });
+                values: new object[] { 2, "Initial Create", new DateTime(2021, 3, 30, 17, 10, 57, 590, DateTimeKind.Local).AddTicks(1086), true, false, false, 1, "Tebrikler. Eğitim çok başarılı.", null, null, "Tebrik", 4 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Comments_LessonId",

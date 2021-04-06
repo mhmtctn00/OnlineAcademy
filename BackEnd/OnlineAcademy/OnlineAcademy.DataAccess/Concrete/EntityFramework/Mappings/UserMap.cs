@@ -20,6 +20,7 @@ namespace OnlineAcademy.DataAccess.Concrete.EntityFramework.Mappings
             builder.Property(u => u.PasswordHash).IsRequired();
             builder.Property(u => u.Firstname).IsRequired().HasMaxLength(50);
             builder.Property(u => u.Lastname).IsRequired().HasMaxLength(50);
+            builder.Property(u => u.Address).IsRequired().HasMaxLength(50);
             builder.Property(u => u.CreatedDate).IsRequired();
             builder.Property(u => u.IsActive).IsRequired();
 
@@ -39,7 +40,8 @@ namespace OnlineAcademy.DataAccess.Concrete.EntityFramework.Mappings
                     ModifiedByName = null,
                     IsActive = true,
                     IsDeleted = false,
-                    IsModified = false
+                    IsModified = false,
+                    Address = "user1"
                 },
                 new User
                 {
@@ -55,7 +57,8 @@ namespace OnlineAcademy.DataAccess.Concrete.EntityFramework.Mappings
                     ModifiedByName = null,
                     IsActive = true,
                     IsDeleted = false,
-                    IsModified = false
+                    IsModified = false,
+                    Address = "user2"
 
                 },
                 new User
@@ -72,7 +75,8 @@ namespace OnlineAcademy.DataAccess.Concrete.EntityFramework.Mappings
                     ModifiedByName = null,
                     IsActive = true,
                     IsDeleted = false,
-                    IsModified = false
+                    IsModified = false,
+                    Address = "user3"
                 },
                 new User
                 {
@@ -88,7 +92,8 @@ namespace OnlineAcademy.DataAccess.Concrete.EntityFramework.Mappings
                     ModifiedByName = null,
                     IsActive = true,
                     IsDeleted = false,
-                    IsModified = false
+                    IsModified = false,
+                    Address = "user4"
                 }
                 );
         }
