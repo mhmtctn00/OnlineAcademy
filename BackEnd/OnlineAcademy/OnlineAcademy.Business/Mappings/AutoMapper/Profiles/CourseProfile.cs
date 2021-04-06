@@ -2,7 +2,6 @@
 using OnlineAcademy.Entities.Concrete;
 using OnlineAcademy.Entities.Dtos.Get;
 using OnlineAcademy.Entities.Dtos.Add;
-using OnlineAcademy.Entities.Dtos.Get;
 using OnlineAcademy.Entities.Dtos.Update;
 using System;
 using System.Collections.Generic;
